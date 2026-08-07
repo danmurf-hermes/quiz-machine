@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { createGame, pickQuestion, answerQuestion, tierForStreak } from './game/engine';
+import { createGame, pickQuestion, answerQuestion, tierForStreak, BASE_POINTS } from './game/engine';
 import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, unlockAudio, vibrate } from './game/sounds';
 import { burst } from './game/confetti';
 import './styles.css';
@@ -49,10 +49,17 @@ const SPONSORS = [
 
 const QUIZBERT_QUIPS = {
   intro: [
-    'Welcome, welcome, WELCOME to the Quiz Machine!',
-    'I\'m your host, Quizbert! Let\'s make some memories!',
-    'The stage is set, the glitter is on — let\'s play!',
-    'Contestant! The machine awaits!',
+    'Welcome, welcome, WELCOME to the Quiz Machine! I\'m your host, Quizbert!',
+    'Good evening, contestant! Quizbert here — the machine is warm and the questions are waiting!',
+    'Hello hello hello! Quizbert at your service. Let\'s make some memories!',
+    'The stage is set, the glitter is on! I\'m Quizbert, and this is the Quiz Machine!',
+    'Ladies and gentlemen... and contestant! Quizbert welcomes you to the show!',
+  ],
+  correct: [
+    'Correct! Splendid!',
+    'Right you are, contestant!',
+    'Ooh, lovely stuff!',
+    'The machine approves!',
   ],
   wrong: [
     'Oh dear. Oh dear oh dear.',
@@ -77,6 +84,36 @@ const QUIZBERT_QUIPS = {
   ],
 };
 
+// Question presentation lines — {v} is replaced with the points on offer
+const QUIZBERT_PRESENT = [
+  'And now, for £{v}!',
+  'Next up — for £{v}!',
+  'For £{v}, contestant!',
+  'Let\'s see you take £{v}!',
+  'The next question is worth £{v}!',
+];
+
+// Points the next question is worth: tier base × next multiplier
+function pointsOnOffer(state, q) {
+  return BASE_POINTS[q.d] * Math.min(state.streak + 1, 10);
+}
+
+// Quizbert's presentation line for the next question
+function presentFor(state, q) {
+  const v = pointsOnOffer(state, q).toLocaleString();
+  const tpl = QUIZBERT_PRESENT[Math.floor(Math.random() * QUIZBERT_PRESENT.length)];
+  return tpl.replace('{v}', v);
+}
+
+const QUIZBERT_FACES = {
+  intro: '😎',
+  present: '😏',
+  correct: '😄',
+  wrong: '😬',
+  milestone: '🤩',
+  gameover: '😔',
+};
+
 function App() {
   const [screen, setScreen] = useState('title');
   const [game, setGame] = useState(null);
@@ -84,11 +121,11 @@ function App() {
   const [bank, setBank] = useState(null);
   const [best, setBest] = useState(loadBest());
   const [lastResult, setLastResult] = useState(null); // {correct, chosen, correctIndex}
-  const [sponsor, setSponsor] = useState(null);
+  const [quizbert, setQuizbert] = useState(null); // {text, kind, face, sponsor?}
+  const [presentLine, setPresentLine] = useState(null); // Quizbert's "for £X" line
   const [finalScore, setFinalScore] = useState(0);
   const [finalStreak, setFinalStreak] = useState(0);
   const [cash, setCash] = useState(0);
-  const [quizbert, setQuizbert] = useState(null); // {text, kind}
   const cashTimer = useRef(null);
 
   // Load question bank once
@@ -122,11 +159,16 @@ function App() {
     setQuestion(q);
     setLastResult(null);
     setCash(0);
+    // Quizbert introduces himself, full screen
     setQuizbert({
-      text: QUIZBERT_QUIPS.intro[Math.floor(Math.random() * QUIZBERT_QUIPS.intro.length)],
       kind: 'intro',
+      text: QUIZBERT_QUIPS.intro[Math.floor(Math.random() * QUIZBERT_QUIPS.intro.length)],
+      face: QUIZBERT_FACES.intro,
     });
-    setTimeout(() => setQuizbert((qb) => (qb && qb.kind === 'intro' ? null : qb)), 2800);
+    setTimeout(() => {
+      setQuizbert(null);
+      setPresentLine(presentFor(g, q));
+    }, 2800);
     setScreen('playing');
   }
 
@@ -152,21 +194,10 @@ function App() {
       if (result.milestone) {
         playMilestone();
         vibrate([60, 40, 60]);
-        setQuizbert({
-          text: QUIZBERT_QUIPS.milestone[Math.floor(Math.random() * QUIZBERT_QUIPS.milestone.length)],
-          kind: 'milestone',
-        });
-        setSponsor(SPONSORS[Math.floor(Math.random() * SPONSORS.length)]);
-        setTimeout(() => setSponsor(null), 2600);
       }
     } else {
       playWrong();
       vibrate([80, 60, 80]);
-      setQuizbert({
-        text: QUIZBERT_QUIPS.wrong[Math.floor(Math.random() * QUIZBERT_QUIPS.wrong.length)],
-        kind: 'wrong',
-      });
-      setTimeout(() => setQuizbert((qb) => (qb && qb.kind === 'wrong' ? null : qb)), 2200);
     }
 
     setTimeout(() => {
@@ -175,8 +206,9 @@ function App() {
         setFinalScore(game.score);
         setFinalStreak(game.streak);
         setQuizbert({
-          text: QUIZBERT_QUIPS.gameOver[Math.floor(Math.random() * QUIZBERT_QUIPS.gameOver.length)],
           kind: 'gameover',
+          text: QUIZBERT_QUIPS.gameOver[Math.floor(Math.random() * QUIZBERT_QUIPS.gameOver.length)],
+          face: QUIZBERT_FACES.gameover,
         });
         if (game.score > loadBest()) {
           saveBest(game.score);
@@ -192,8 +224,24 @@ function App() {
           setScreen('gameover');
           return;
         }
-        setQuestion(next);
-        setLastResult(null);
+        const kind = result.correct ? (result.milestone ? 'milestone' : 'correct') : 'wrong';
+        const qb = {
+          kind,
+          text: QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)],
+          face: QUIZBERT_FACES[kind],
+        };
+        if (result.milestone) {
+          qb.sponsor = SPONSORS[Math.floor(Math.random() * SPONSORS.length)];
+        }
+        setQuizbert(qb);
+        const delay = result.milestone ? 2800 : 1700;
+        setTimeout(() => {
+          setQuizbert(null);
+          setQuestion(next);
+          setLastResult(null);
+          // Quizbert presents the next question
+          setPresentLine(presentFor(game, next));
+        }, delay);
       }
     }, 900);
   }
@@ -233,6 +281,12 @@ function App() {
             <div className="cash">£{cash.toLocaleString()}</div>
           </div>
 
+          {presentLine && !lastResult && (
+            <div className="present-line">
+              <span className="quizbert-avatar">🎩</span> {presentLine}
+            </div>
+          )}
+
           <div className={`question-card ${lastResult ? (lastResult.correct ? 'flash-good' : 'flash-bad') : ''}`}>
             <div className="tier-tag">{tierForStreak(game.streak).toUpperCase()}</div>
             <div className="question-text">{question.q}</div>
@@ -260,18 +314,17 @@ function App() {
             })}
           </div>
 
-          {sponsor && (
-            <div className="sponsor-card">
-              <div className="sponsor-kicker">AND NOW A WORD FROM OUR SPONSORS</div>
-              <div className="sponsor-name">{sponsor.name}</div>
-              <div className="sponsor-tag">{sponsor.tag}</div>
-            </div>
-          )}
-
           {quizbert && quizbert.kind !== 'gameover' && (
-            <div className={`quizbert-quip ${quizbert.kind}`}>
-              <span className="quizbert-avatar">🎩</span>
-              {quizbert.text}
+            <div className={`quizbert-full ${quizbert.kind}`}>
+              <div className="quizbert-face">{quizbert.face}</div>
+              <div className="quizbert-line">{quizbert.text}</div>
+              {quizbert.sponsor && (
+                <div className="sponsor-card">
+                  <div className="sponsor-kicker">AND NOW A WORD FROM OUR SPONSORS</div>
+                  <div className="sponsor-name">{quizbert.sponsor.name}</div>
+                  <div className="sponsor-tag">{quizbert.sponsor.tag}</div>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -280,7 +333,12 @@ function App() {
       {screen === 'gameover' && (
         <div className="screen gameover-screen">
           <div className="gameover-title">GAME OVER</div>
-          {quizbert && <div className="quizbert-quip gameover-quip">{quizbert.text}</div>}
+          {quizbert && (
+            <div className="quizbert-verdict">
+              <div className="quizbert-face small">{quizbert.face}</div>
+              <div className="quizbert-line">{quizbert.text}</div>
+            </div>
+          )}
           <div className="final-score">£{finalScore.toLocaleString()}</div>
           <div className="final-streak">Best streak: {finalStreak}</div>
           <button className="big-btn play-btn" onClick={startGame}>
