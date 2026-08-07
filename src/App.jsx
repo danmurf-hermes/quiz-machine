@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createGame, pickQuestion, answerQuestion, tierForStreak, BASE_POINTS } from './game/engine';
-import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, unlockAudio, vibrate } from './game/sounds';
+import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, unlockAudio, vibrate } from './game/sounds';
 import { burst } from './game/confetti';
 import './styles.css';
 
@@ -8,6 +8,10 @@ const STORAGE = {
   best: 'itbox_best',
   seen: 'itbox_seen',
 };
+
+const QUESTION_TIME = 20; // seconds per question
+const HEARTBEAT_START = 8; // seconds remaining when heartbeat begins
+const HEARTBEAT_MIN_GAP = 250; // ms — fastest heartbeat
 
 function loadSeen() {
   try {
@@ -68,6 +72,12 @@ const QUIZBERT_QUIPS = {
     'The audience winces. I wince. We all wince.',
     'A valiant effort. The machine is not impressed.',
   ],
+  timeout: [
+    'Time\'s up! The machine waits for no one!',
+    'Too slow, contestant! The clock is merciless!',
+    'The sands of time have run out!',
+    'Tick tock! The machine moves on!',
+  ],
   milestone: [
     'Splendid stuff!',
     'The crowd goes wild!',
@@ -110,6 +120,7 @@ const QUIZBERT_FACES = {
   present: '😏',
   correct: '😄',
   wrong: '😬',
+  timeout: '😰',
   milestone: '🤩',
   gameover: '😔',
 };
@@ -126,7 +137,9 @@ function App() {
   const [finalScore, setFinalScore] = useState(0);
   const [finalStreak, setFinalStreak] = useState(0);
   const [cash, setCash] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
   const cashTimer = useRef(null);
+  const heartbeatTimer = useRef(null);
 
   // Load question bank once
   useEffect(() => {
@@ -172,34 +185,51 @@ function App() {
     setScreen('playing');
   }
 
-  function handleAnswer(chosen) {
-    if (!game || !question || lastResult) return;
-    const result = answerQuestion(game, question, chosen);
-    saveSeen(game.seen);
-    setLastResult({ correct: result.correct, chosen, correctIndex: question.c });
-
-    if (result.correct) {
-      playCorrect(game.streak);
-      vibrate(30);
-      burst(0.5, 0.45, 30);
-      // Cash pot count-up
-      clearInterval(cashTimer.current);
-      const target = game.score;
-      cashTimer.current = setInterval(() => {
-        setCash((c) => {
-          if (c >= target) { clearInterval(cashTimer.current); return target; }
-          return c + Math.max(1, Math.round((target - c) / 8));
-        });
-      }, 30);
-      if (result.milestone) {
-        playMilestone();
-        vibrate([60, 40, 60]);
+  // Countdown timer per question
+  useEffect(() => {
+    if (screen !== 'playing' || !question || lastResult) return;
+    setTimeLeft(QUESTION_TIME);
+    const started = Date.now();
+    const tick = setInterval(() => {
+      const elapsed = (Date.now() - started) / 1000;
+      const left = Math.max(0, QUESTION_TIME - elapsed);
+      setTimeLeft(left);
+      if (left <= 0) {
+        clearInterval(tick);
+        handleTimeout();
       }
-    } else {
-      playWrong();
-      vibrate([80, 60, 80]);
-    }
+    }, 100);
+    return () => clearInterval(tick);
+  }, [screen, question, lastResult]);
 
+  // Accelerating heartbeat as the timer runs out
+  useEffect(() => {
+    if (screen !== 'playing' || !question || lastResult) return;
+    if (timeLeft > HEARTBEAT_START) return;
+    const gap = HEARTBEAT_MIN_GAP + (timeLeft / HEARTBEAT_START) * 900;
+    heartbeatTimer.current = setTimeout(() => {
+      playHeartbeat();
+      vibrate(20);
+    }, gap);
+    return () => clearTimeout(heartbeatTimer.current);
+  }, [timeLeft, screen, question, lastResult]);
+
+  function handleTimeout() {
+    if (!game || !question || lastResult) return;
+    playTimeout();
+    vibrate([100, 60, 100]);
+    const result = answerQuestion(game, question, -1); // -1 is never correct
+    saveSeen(game.seen);
+    setLastResult({ correct: false, chosen: -1, correctIndex: question.c });
+    setQuizbert({
+      kind: 'timeout',
+      text: QUIZBERT_QUIPS.timeout[Math.floor(Math.random() * QUIZBERT_QUIPS.timeout.length)],
+      face: QUIZBERT_FACES.timeout,
+    });
+    advanceAfter(result);
+  }
+
+  function advanceAfter(result) {
     setTimeout(() => {
       if (result.state.over) {
         playGameOver();
@@ -246,6 +276,37 @@ function App() {
     }, 900);
   }
 
+  function handleAnswer(chosen) {
+    if (!game || !question || lastResult) return;
+    const result = answerQuestion(game, question, chosen);
+    saveSeen(game.seen);
+    setLastResult({ correct: result.correct, chosen, correctIndex: question.c });
+
+    if (result.correct) {
+      playCorrect(game.streak);
+      vibrate(30);
+      burst(0.5, 0.45, 30);
+      // Cash pot count-up
+      clearInterval(cashTimer.current);
+      const target = game.score;
+      cashTimer.current = setInterval(() => {
+        setCash((c) => {
+          if (c >= target) { clearInterval(cashTimer.current); return target; }
+          return c + Math.max(1, Math.round((target - c) / 8));
+        });
+      }, 30);
+      if (result.milestone) {
+        playMilestone();
+        vibrate([60, 40, 60]);
+      }
+    } else {
+      playWrong();
+      vibrate([80, 60, 80]);
+    }
+
+    advanceAfter(result);
+  }
+
   if (!bank) {
     return <div className="app loading">Loading questions…</div>;
   }
@@ -279,6 +340,13 @@ function App() {
               {game.streak > 0 ? `🔥 ×${game.streak}` : '—'}
             </div>
             <div className="cash">£{cash.toLocaleString()}</div>
+          </div>
+
+          <div className={`timer-bar ${timeLeft <= 5 ? 'danger' : ''} ${timeLeft <= 2 ? 'critical' : ''}`}>
+            <div
+              className="timer-fill"
+              style={{ width: `${(timeLeft / QUESTION_TIME) * 100}%` }}
+            />
           </div>
 
           {presentLine && !lastResult && (

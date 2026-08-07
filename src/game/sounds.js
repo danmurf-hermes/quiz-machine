@@ -59,6 +59,29 @@ export function playCashCount() {
   tone(1200, 0, 0.04, 'square', 0.05);
 }
 
+// Low thump — the heartbeat that accelerates as the timer runs out
+export function playHeartbeat() {
+  const c = ensureCtx();
+  if (!c) return;
+  const osc = c.createOscillator();
+  const gain = c.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(60, c.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(38, c.currentTime + 0.1);
+  gain.gain.setValueAtTime(0.28, c.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + 0.13);
+  osc.connect(gain).connect(c.destination);
+  osc.start(c.currentTime);
+  osc.stop(c.currentTime + 0.15);
+}
+
+// Time's up — descending three-tone
+export function playTimeout() {
+  tone(400, 0, 0.15, 'square', 0.12);
+  tone(300, 0.15, 0.2, 'square', 0.12);
+  tone(200, 0.3, 0.3, 'square', 0.12);
+}
+
 // Call once from a user gesture to unlock audio
 export function unlockAudio() {
   ensureCtx();
