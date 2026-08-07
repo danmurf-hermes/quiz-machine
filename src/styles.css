@@ -94,6 +94,43 @@ body {
   font-weight: 700;
 }
 
+.quizbert-banner {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  background: var(--panel);
+  border: 2px solid var(--purple);
+  border-radius: 999px;
+  padding: 8px 20px;
+  box-shadow: 0 3px 0 #6a0d5e;
+}
+
+.quizbert-banner strong { color: var(--yellow); }
+
+.quizbert-quip {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--yellow);
+  text-align: center;
+  animation: quip-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.quizbert-avatar { font-size: 1.4rem; }
+
+.quizbert-quip.wrong { color: var(--pink); }
+.quizbert-quip.intro { color: var(--blue); font-size: 1.15rem; }
+
+@keyframes quip-in {
+  from { opacity: 0; transform: scale(0.7) rotate(-2deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.gameover-quip { margin-top: -8px; }
+
 .title-hint { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
 
 /* ---------- Buttons ---------- */

@@ -47,6 +47,36 @@ const SPONSORS = [
   { name: 'Mildred\'s Miracle Elixir', tag: 'Cures what ails ya (probably)' },
 ];
 
+const QUIZBERT_QUIPS = {
+  intro: [
+    'Welcome, welcome, WELCOME to the Quiz Machine!',
+    'I\'m your host, Quizbert! Let\'s make some memories!',
+    'The stage is set, the glitter is on — let\'s play!',
+    'Contestant! The machine awaits!',
+  ],
+  wrong: [
+    'Oh dear. Oh dear oh dear.',
+    'The machine is not impressed, contestant.',
+    'Ooh, that one got away from us.',
+    'The audience winces. I wince. We all wince.',
+    'A valiant effort. The machine is not impressed.',
+  ],
+  milestone: [
+    'Splendid stuff!',
+    'The crowd goes wild!',
+    'Magnificent!',
+    'You\'re on fire, contestant!',
+    'Ooh, what a corker!',
+  ],
+  gameOver: [
+    'Unlucky, contestant!',
+    'The machine giveth, and the machine taketh away.',
+    'I\'ve seen better, but I\'ve also seen much worse.',
+    'The pub quiz circuit will be hearing about this.',
+    'The machine remembers. The machine always remembers.',
+  ],
+};
+
 function App() {
   const [screen, setScreen] = useState('title');
   const [game, setGame] = useState(null);
@@ -58,6 +88,7 @@ function App() {
   const [finalScore, setFinalScore] = useState(0);
   const [finalStreak, setFinalStreak] = useState(0);
   const [cash, setCash] = useState(0);
+  const [quizbert, setQuizbert] = useState(null); // {text, kind}
   const cashTimer = useRef(null);
 
   // Load question bank once
@@ -91,6 +122,11 @@ function App() {
     setQuestion(q);
     setLastResult(null);
     setCash(0);
+    setQuizbert({
+      text: QUIZBERT_QUIPS.intro[Math.floor(Math.random() * QUIZBERT_QUIPS.intro.length)],
+      kind: 'intro',
+    });
+    setTimeout(() => setQuizbert((qb) => (qb && qb.kind === 'intro' ? null : qb)), 2800);
     setScreen('playing');
   }
 
@@ -116,12 +152,21 @@ function App() {
       if (result.milestone) {
         playMilestone();
         vibrate([60, 40, 60]);
+        setQuizbert({
+          text: QUIZBERT_QUIPS.milestone[Math.floor(Math.random() * QUIZBERT_QUIPS.milestone.length)],
+          kind: 'milestone',
+        });
         setSponsor(SPONSORS[Math.floor(Math.random() * SPONSORS.length)]);
         setTimeout(() => setSponsor(null), 2600);
       }
     } else {
       playWrong();
       vibrate([80, 60, 80]);
+      setQuizbert({
+        text: QUIZBERT_QUIPS.wrong[Math.floor(Math.random() * QUIZBERT_QUIPS.wrong.length)],
+        kind: 'wrong',
+      });
+      setTimeout(() => setQuizbert((qb) => (qb && qb.kind === 'wrong' ? null : qb)), 2200);
     }
 
     setTimeout(() => {
@@ -129,6 +174,10 @@ function App() {
         playGameOver();
         setFinalScore(game.score);
         setFinalStreak(game.streak);
+        setQuizbert({
+          text: QUIZBERT_QUIPS.gameOver[Math.floor(Math.random() * QUIZBERT_QUIPS.gameOver.length)],
+          kind: 'gameover',
+        });
         if (game.score > loadBest()) {
           saveBest(game.score);
           setBest(game.score);
@@ -161,6 +210,7 @@ function App() {
             <span className="logo-big">QUIZ</span>
             <span className="logo-small">MACHINE</span>
           </div>
+          <div className="quizbert-banner">with your host, <strong>Quizbert</strong> 🎩</div>
           <div className="best-score">Best: £{best.toLocaleString()}</div>
           <button className="big-btn play-btn" onClick={startGame}>
             TAP TO PLAY
@@ -217,12 +267,20 @@ function App() {
               <div className="sponsor-tag">{sponsor.tag}</div>
             </div>
           )}
+
+          {quizbert && quizbert.kind !== 'gameover' && (
+            <div className={`quizbert-quip ${quizbert.kind}`}>
+              <span className="quizbert-avatar">🎩</span>
+              {quizbert.text}
+            </div>
+          )}
         </div>
       )}
 
       {screen === 'gameover' && (
         <div className="screen gameover-screen">
           <div className="gameover-title">GAME OVER</div>
+          {quizbert && <div className="quizbert-quip gameover-quip">{quizbert.text}</div>}
           <div className="final-score">£{finalScore.toLocaleString()}</div>
           <div className="final-streak">Best streak: {finalStreak}</div>
           <button className="big-btn play-btn" onClick={startGame}>
