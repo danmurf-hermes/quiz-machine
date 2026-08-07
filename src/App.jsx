@@ -1,122 +1,240 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useEffect, useRef, useState } from 'react';
+import { createGame, pickQuestion, answerQuestion, tierForStreak } from './game/engine';
+import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, unlockAudio, vibrate } from './game/sounds';
+import { burst } from './game/confetti';
+import './styles.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const STORAGE = {
+  best: 'itbox_best',
+  seen: 'itbox_seen',
+};
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+function loadSeen() {
+  try {
+    const raw = localStorage.getItem(STORAGE.seen);
+    return raw ? new Set(JSON.parse(raw)) : new Set();
+  } catch {
+    return new Set();
+  }
 }
 
-export default App
+function saveSeen(seen) {
+  try {
+    localStorage.setItem(STORAGE.seen, JSON.stringify([...seen]));
+  } catch { /* noop */ }
+}
+
+function loadBest() {
+  try {
+    return parseInt(localStorage.getItem(STORAGE.best) || '0', 10);
+  } catch {
+    return 0;
+  }
+}
+
+function saveBest(score) {
+  try {
+    localStorage.setItem(STORAGE.best, String(score));
+  } catch { /* noop */ }
+}
+
+const SPONSORS = [
+  { name: 'Bovril & Sons', tag: 'Warm your soul since 1889' },
+  { name: 'Wobbly Bob\'s Furniture', tag: 'Slightly wonky, slightly lovely' },
+  { name: 'Captain Crunch\'s Cereal', tag: 'For champions who chew' },
+  { name: 'The Soggy Biscuit Co.', tag: 'Dunk responsibly' },
+  { name: 'Sir Reginald\'s Pickled Eggs', tag: 'A pub classic, now in cans' },
+  { name: 'Mildred\'s Miracle Elixir', tag: 'Cures what ails ya (probably)' },
+];
+
+function App() {
+  const [screen, setScreen] = useState('title');
+  const [game, setGame] = useState(null);
+  const [question, setQuestion] = useState(null);
+  const [bank, setBank] = useState(null);
+  const [best, setBest] = useState(loadBest());
+  const [lastResult, setLastResult] = useState(null); // {correct, chosen, correctIndex}
+  const [sponsor, setSponsor] = useState(null);
+  const [finalScore, setFinalScore] = useState(0);
+  const [finalStreak, setFinalStreak] = useState(0);
+  const [cash, setCash] = useState(0);
+  const cashTimer = useRef(null);
+
+  // Load question bank once
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([
+      fetch('/data/easy.json').then((r) => r.json()),
+      fetch('/data/medium.json').then((r) => r.json()),
+      fetch('/data/hard.json').then((r) => r.json()),
+    ]).then(([easy, medium, hard]) => {
+      if (!cancelled) setBank({ easy, medium, hard });
+    });
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => () => clearInterval(cashTimer.current), []);
+
+  function startGame() {
+    unlockAudio();
+    playTap();
+    const seen = loadSeen();
+    // Reset seen when 80% of the bank has been seen — fresh shuffle
+    const total = bank ? bank.easy.length + bank.medium.length + bank.hard.length : 180;
+    if (seen.size > total * 0.8) {
+      seen.clear();
+      saveSeen(seen);
+    }
+    const g = createGame(seen);
+    const q = pickQuestion(g, bank);
+    setGame(g);
+    setQuestion(q);
+    setLastResult(null);
+    setCash(0);
+    setScreen('playing');
+  }
+
+  function handleAnswer(chosen) {
+    if (!game || !question || lastResult) return;
+    const result = answerQuestion(game, question, chosen);
+    saveSeen(game.seen);
+    setLastResult({ correct: result.correct, chosen, correctIndex: question.c });
+
+    if (result.correct) {
+      playCorrect(game.streak);
+      vibrate(30);
+      burst(0.5, 0.45, 30);
+      // Cash pot count-up
+      clearInterval(cashTimer.current);
+      const target = game.score;
+      cashTimer.current = setInterval(() => {
+        setCash((c) => {
+          if (c >= target) { clearInterval(cashTimer.current); return target; }
+          return c + Math.max(1, Math.round((target - c) / 8));
+        });
+      }, 30);
+      if (result.milestone) {
+        playMilestone();
+        vibrate([60, 40, 60]);
+        setSponsor(SPONSORS[Math.floor(Math.random() * SPONSORS.length)]);
+        setTimeout(() => setSponsor(null), 2600);
+      }
+    } else {
+      playWrong();
+      vibrate([80, 60, 80]);
+    }
+
+    setTimeout(() => {
+      if (result.state.over) {
+        playGameOver();
+        setFinalScore(game.score);
+        setFinalStreak(game.streak);
+        if (game.score > loadBest()) {
+          saveBest(game.score);
+          setBest(game.score);
+        }
+        setScreen('gameover');
+      } else {
+        const next = pickQuestion(game, bank);
+        if (!next) {
+          // Bank exhausted mid-game — treat as a win
+          setFinalScore(game.score);
+          setFinalStreak(game.streak);
+          setScreen('gameover');
+          return;
+        }
+        setQuestion(next);
+        setLastResult(null);
+      }
+    }, 900);
+  }
+
+  if (!bank) {
+    return <div className="app loading">Loading questions…</div>;
+  }
+
+  return (
+    <div className="app">
+      {screen === 'title' && (
+        <div className="screen title-screen">
+          <div className="logo">
+            <span className="logo-big">QUIZ</span>
+            <span className="logo-small">MACHINE</span>
+          </div>
+          <div className="best-score">Best: £{best.toLocaleString()}</div>
+          <button className="big-btn play-btn" onClick={startGame}>
+            TAP TO PLAY
+          </button>
+          <div className="title-hint">3 lives · how far can you get?</div>
+        </div>
+      )}
+
+      {screen === 'playing' && game && question && (
+        <div className="screen game-screen">
+          <div className="hud">
+            <div className="lives">
+              {[0, 1, 2].map((i) => (
+                <span key={i} className={`heart ${i < game.lives ? 'alive' : 'dead'}`}>♥</span>
+              ))}
+            </div>
+            <div className={`streak ${game.streak >= 5 ? 'hot' : ''}`}>
+              {game.streak > 0 ? `🔥 ×${game.streak}` : '—'}
+            </div>
+            <div className="cash">£{cash.toLocaleString()}</div>
+          </div>
+
+          <div className={`question-card ${lastResult ? (lastResult.correct ? 'flash-good' : 'flash-bad') : ''}`}>
+            <div className="tier-tag">{tierForStreak(game.streak).toUpperCase()}</div>
+            <div className="question-text">{question.q}</div>
+          </div>
+
+          <div className="answers">
+            {question.a.map((ans, i) => {
+              let cls = 'answer-btn';
+              if (lastResult) {
+                if (i === question.c) cls += ' correct';
+                else if (i === lastResult.chosen) cls += ' wrong';
+                else cls += ' dimmed';
+              }
+              return (
+                <button
+                  key={i}
+                  className={cls}
+                  onClick={() => handleAnswer(i)}
+                  disabled={!!lastResult}
+                >
+                  <span className="answer-letter">{String.fromCharCode(65 + i)}</span>
+                  {ans}
+                </button>
+              );
+            })}
+          </div>
+
+          {sponsor && (
+            <div className="sponsor-card">
+              <div className="sponsor-kicker">AND NOW A WORD FROM OUR SPONSORS</div>
+              <div className="sponsor-name">{sponsor.name}</div>
+              <div className="sponsor-tag">{sponsor.tag}</div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {screen === 'gameover' && (
+        <div className="screen gameover-screen">
+          <div className="gameover-title">GAME OVER</div>
+          <div className="final-score">£{finalScore.toLocaleString()}</div>
+          <div className="final-streak">Best streak: {finalStreak}</div>
+          <button className="big-btn play-btn" onClick={startGame}>
+            ONE MORE GO
+          </button>
+          <button className="ghost-btn" onClick={() => { playTap(); setScreen('title'); }}>
+            Back to title
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;

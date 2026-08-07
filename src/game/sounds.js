@@ -1,0 +1,71 @@
+// Web Audio synth — no audio assets needed. All sounds generated.
+// AudioContext is created lazily on first user gesture (browser autoplay policy).
+
+let ctx = null;
+
+function ensureCtx() {
+  if (!ctx) {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    ctx = new AC();
+  }
+  if (ctx.state === 'suspended') ctx.resume();
+  return ctx;
+}
+
+function tone(freq, start, dur, type = 'square', vol = 0.15) {
+  const c = ensureCtx();
+  if (!c) return;
+  const osc = c.createOscillator();
+  const gain = c.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, c.currentTime + start);
+  gain.gain.setValueAtTime(0, c.currentTime + start);
+  gain.gain.linearRampToValueAtTime(vol, c.currentTime + start + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + start + dur);
+  osc.connect(gain).connect(c.destination);
+  osc.start(c.currentTime + start);
+  osc.stop(c.currentTime + start + dur + 0.05);
+}
+
+// Correct: rising arpeggio, pitch shifts up with streak (the hook!)
+export function playCorrect(streak) {
+  const base = 440 * Math.pow(1.06, Math.min(streak, 20)); // semitone-ish rise per streak
+  tone(base, 0, 0.12, 'square', 0.12);
+  tone(base * 1.25, 0.08, 0.12, 'square', 0.12);
+  tone(base * 1.5, 0.16, 0.2, 'square', 0.12);
+}
+
+export function playWrong() {
+  tone(160, 0, 0.25, 'sawtooth', 0.15);
+  tone(110, 0.12, 0.35, 'sawtooth', 0.15);
+}
+
+export function playMilestone() {
+  const notes = [523, 659, 784, 1047, 1319];
+  notes.forEach((f, i) => tone(f, i * 0.09, 0.18, 'triangle', 0.14));
+}
+
+export function playGameOver() {
+  const notes = [392, 330, 262, 196];
+  notes.forEach((f, i) => tone(f, i * 0.22, 0.3, 'triangle', 0.14));
+}
+
+export function playTap() {
+  tone(800, 0, 0.05, 'square', 0.06);
+}
+
+export function playCashCount() {
+  tone(1200, 0, 0.04, 'square', 0.05);
+}
+
+// Call once from a user gesture to unlock audio
+export function unlockAudio() {
+  ensureCtx();
+}
+
+export function vibrate(pattern) {
+  if (navigator.vibrate) {
+    try { navigator.vibrate(pattern); } catch { /* noop */ }
+  }
+}
