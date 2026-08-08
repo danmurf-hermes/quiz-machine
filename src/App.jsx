@@ -103,40 +103,54 @@ const QUIZBERT_QUIPS = {
   ],
 };
 
-// Roasts escalate with consecutive wrongs — Quizbert gets meaner and laughs at you
+// Roasts escalate with consecutive wrongs — banter, not bullying. Quizbert teases.
 const QUIZBERT_ROASTS = {
   mild: {
     face: '😏',
+    laugh: false,
     lines: [
-      'Oh dear. Was that a guess, or a cry for help?',
-      'The audience is laughing, contestant. At you, not with you.',
-      'That answer just retired from professional quizzing.',
-      'I\'ve seen better answers from a sleeping pigeon.',
-      'Even the wrong answers are embarrassed by that one.',
+      'Ooh, a swing and a miss. The crowd goes "oooh".',
+      'Not quite! I\'d say unlucky, but I\'d be lying.',
+      'Bold choice, contestant. Bold.',
+      'The machine would tut, but it doesn\'t have a mouth.',
+      'That\'s one for the blooper reel.',
     ],
   },
   spicy: {
-    face: '😂',
+    face: '🤭',
+    laugh: true,
     lines: [
-      'Are you even trying, or is this performance art?',
-      'My toaster has answered more questions correctly than you.',
-      'That was so wrong it\'s now a museum exhibit.',
-      'I\'d say "think harder", but I\'m not sure you have the equipment.',
-      'The machine has seen bad answers. That one made the machine weep.',
+      'Two in a row! You\'re building a collection.',
+      'I\'m starting to think you\'re doing this on purpose.',
+      'Really? That one? Okay then.',
+      'The audience is trying not to laugh. They\'re failing.',
+      'You\'re making this too easy, contestant.',
     ],
   },
   nuclear: {
-    face: '🤣',
+    face: '🥱',
+    laugh: false,
     lines: [
-      'Is this a cry for help? Should I call someone?',
-      'I\'ve met potatoes with better quiz instincts than you.',
-      'You\'re making the other wrong answers look good.',
-      'At this point I\'m just impressed by the commitment to being wrong.',
-      'The machine is now legally required to tell you to take a break.',
-      'Somewhere, a pub quiz machine just felt a great disturbance.',
+      'Third one! I\'d yawn, but I don\'t want to be rude. Actually, I do.',
+      'At this point I\'m just impressed by the commitment.',
+      'I\'ve seen better, but I\'ve also seen worse. Just not often.',
+      'The machine is having a lovely evening, thanks for asking.',
+      'I\'d say "take your time", but you clearly are.',
     ],
   },
 };
+
+// Backhanded compliments — Quizbert roasts you even when you're right
+const QUIZBERT_BANTER = [
+  { face: '😏', text: 'Correct! I\'m as surprised as you are.' },
+  { face: '😏', text: 'Even a broken clock is right twice a day.' },
+  { face: '😌', text: 'I\'ll allow it. Don\'t let it go to your head.' },
+  { face: '😏', text: 'Well, well, well. Look who decided to show up.' },
+  { face: '😏', text: 'That was a free one. The next won\'t be so kind.' },
+  { face: '🤨', text: 'Hmm. Lucky guess, or are you warming up?' },
+  { face: '😏', text: 'The machine is impressed. Marginally.' },
+  { face: '😏', text: 'Don\'t get too excited — beginners get lucky too.' },
+];
 
 function roastFor(wrongs) {
   const tier = wrongs >= 3 ? 'nuclear' : wrongs === 2 ? 'spicy' : 'mild';
@@ -144,7 +158,13 @@ function roastFor(wrongs) {
   return {
     text: pool.lines[Math.floor(Math.random() * pool.lines.length)],
     face: pool.face,
+    laugh: pool.laugh,
   };
+}
+
+// ~1 in 3 correct answers gets a backhanded compliment instead of praise
+function banterFor() {
+  return QUIZBERT_BANTER[Math.floor(Math.random() * QUIZBERT_BANTER.length)];
 }
 
 function gameOverLine(score) {
@@ -315,6 +335,7 @@ function App() {
       kind: 'timeout',
       text: QUIZBERT_QUIPS.timeout[Math.floor(Math.random() * QUIZBERT_QUIPS.timeout.length)],
       face: roast.face,
+      laugh: roast.laugh,
     });
     advanceAfter(result, wrongs);
   }
@@ -346,12 +367,14 @@ function App() {
         }
         const kind = result.correct ? (result.milestone ? 'milestone' : 'correct') : 'wrong';
         const roast = result.correct ? null : roastFor(wrongs);
+        const banter = result.correct && !result.milestone && Math.random() < 0.33 ? banterFor() : null;
         const qb = {
           kind,
           text: result.correct
-            ? QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)]
+            ? (banter ? banter.text : QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)])
             : roast.text,
-          face: result.correct ? QUIZBERT_FACES[kind] : roast.face,
+          face: result.correct ? (banter ? banter.face : QUIZBERT_FACES[kind]) : roast.face,
+          laugh: result.correct ? false : roast.laugh,
         };
         if (result.milestone) {
           qb.sponsor = SPONSORS[Math.floor(Math.random() * SPONSORS.length)];
@@ -495,7 +518,7 @@ function App() {
           </div>
 
           {quizbert && quizbert.kind !== 'gameover' && (
-            <div className={`quizbert-full ${quizbert.kind} ${['😏', '😂', '🤣'].includes(quizbert.face) ? 'laughing' : ''}`}>
+            <div className={`quizbert-full ${quizbert.kind} ${quizbert.laugh ? 'laughing' : ''}`}>
               <div className="quizbert-face">{quizbert.face}</div>
               <div className="quizbert-line">{quizbert.text}</div>
               {quizbert.sponsor && (
