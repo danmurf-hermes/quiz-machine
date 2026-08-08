@@ -1,6 +1,6 @@
 // Minimal offline cache: app shell + question data.
 // Only registers on secure contexts (localhost/HTTPS) — LAN IP serving is a no-op there.
-const CACHE = 'itbox-v1';
+const CACHE = 'quizmachine-v1';
 const ASSETS = [
   '/',
   '/index.html',

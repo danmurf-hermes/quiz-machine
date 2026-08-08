@@ -5,9 +5,9 @@ import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
 
 const STORAGE = {
-  best: 'itbox_best',
-  bestRank: 'itbox_best_rank',
-  seen: 'itbox_seen',
+  best: 'quizmachine_best',
+  bestRank: 'quizmachine_best_rank',
+  seen: 'quizmachine_seen',
 };
 
 const QUESTION_TIME = 20; // seconds per question
