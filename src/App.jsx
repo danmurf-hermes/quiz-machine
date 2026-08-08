@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createGame, pickQuestion, answerQuestion, RANKS, rankFor, tierForRank, BASE_POINTS } from './game/engine';
-import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, playRankUp, unlockAudio, vibrate } from './game/sounds';
+import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, playRankUp, startSaloonMusic, stopSaloonMusic, unlockAudio, vibrate } from './game/sounds';
 import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
 
@@ -8,6 +8,7 @@ const STORAGE = {
   best: 'quizmachine_best',
   bestRank: 'quizmachine_best_rank',
   seen: 'quizmachine_seen',
+  music: 'quizmachine_music',
 };
 
 const QUESTION_TIME = 20; // seconds per question
@@ -54,6 +55,20 @@ function loadBestRank() {
 function saveBestRank(rank) {
   try {
     localStorage.setItem(STORAGE.bestRank, String(rank));
+  } catch { /* noop */ }
+}
+
+function loadMusicPref() {
+  try {
+    return localStorage.getItem(STORAGE.music) !== 'off';
+  } catch {
+    return true;
+  }
+}
+
+function saveMusicPref(on) {
+  try {
+    localStorage.setItem(STORAGE.music, on ? 'on' : 'off');
   } catch { /* noop */ }
 }
 
@@ -255,6 +270,7 @@ function App() {
   const [bank, setBank] = useState(null);
   const [best, setBest] = useState(loadBest());
   const [bestRank, setBestRank] = useState(loadBestRank());
+  const [musicOn, setMusicOn] = useState(loadMusicPref());
   const [lastResult, setLastResult] = useState(null); // {correct, chosen, correctIndex}
   const [quizbert, setQuizbert] = useState(null); // {text, kind, face, sponsor?}
   const [presentLine, setPresentLine] = useState(null); // Quizbert's "for £X" line
@@ -310,6 +326,7 @@ function App() {
   function startGame() {
     unlockAudio();
     playTap();
+    if (musicOn) startSaloonMusic();
     const seen = loadSeen();
     // Reset seen when 80% of the bank has been seen — fresh shuffle
     const total = bank ? bank.easy.length + bank.medium.length + bank.hard.length : 180;
@@ -393,6 +410,7 @@ function App() {
   function advanceAfter(result, wrongs = 0) {
     setTimeout(() => {
       if (result.state.over) {
+        stopSaloonMusic();
         playGameOver();
         setFinalScore(game.score);
         setFinalStreak(game.streak);
@@ -568,6 +586,20 @@ function App() {
               {game.streak > 0 ? `🔥 ×${game.streak}` : '—'}
             </div>
             <div className="score">{game.score.toLocaleString()}</div>
+            <button
+              className={`music-btn ${musicOn ? 'on' : 'off'}`}
+              onClick={() => {
+                const next = !musicOn;
+                setMusicOn(next);
+                saveMusicPref(next);
+                playTap();
+                if (next) startSaloonMusic();
+                else stopSaloonMusic();
+              }}
+              aria-label={musicOn ? 'Mute music' : 'Play music'}
+            >
+              {musicOn ? '🎹' : '🔇'}
+            </button>
           </div>
 
           <div className="rank-panel">
