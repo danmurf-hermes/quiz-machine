@@ -64,6 +64,21 @@ const SPONSORS = [
   { name: 'The Soggy Biscuit Co.', tag: 'Dunk responsibly' },
   { name: 'Sir Reginald\'s Pickled Eggs', tag: 'A pub classic, now in cans' },
   { name: 'Mildred\'s Miracle Elixir', tag: 'Cures what ails ya (probably)' },
+  { name: 'Derek\'s Discount Dentures', tag: 'Bite back on a budget' },
+  { name: 'Gertrude\'s Gravity Boots', tag: 'Walk upside down in style' },
+  { name: 'Hank\'s Hovercraft Hire', tag: 'Because boats are so last century' },
+  { name: 'Mabel\'s Marmalade Mine', tag: 'Pure gold, spreadable' },
+  { name: 'Neville\'s Night-Lights', tag: 'For adults afraid of the dark' },
+  { name: 'The Tumbleweed Transport Co.', tag: 'Slow travel, cowboy approved' },
+  { name: 'Boris\'s Bounce House Emporium', tag: 'Grown-ups welcome, dignity not required' },
+  { name: 'Gloria\'s Glow-in-the-Dark Gravy', tag: 'Dinner, but spooky' },
+  { name: 'The Invisible Fence Company', tag: 'You\'ll never see it coming' },
+  { name: 'Hubert\'s Hugs & Handshakes', tag: 'Affection, professionally applied' },
+  { name: 'The Echo Chamber', tag: 'We hear you. We hear you. We hear you.' },
+  { name: 'Stanley\'s Spare Spleens', tag: 'Spare parts for the brave' },
+  { name: 'Mortimer\'s Moustache Wax', tag: 'For lips with ambition' },
+  { name: 'Doris\'s Dinosaur Repellent', tag: 'Works 60% of the time, every time' },
+  { name: 'The Wrong-Way Roundabout', tag: 'Going nowhere, faster' },
 ];
 
 const QUIZBERT_QUIPS = {
