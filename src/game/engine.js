@@ -1,14 +1,14 @@
 // Pure game engine — no DOM, no storage. All state transitions live here.
 
 export const RANKS = [
-  { name: 'Glass Collector', emoji: '🍺', tier: 'easy', segments: 3 },
-  { name: 'Pub Regular', emoji: '🎯', tier: 'easy', segments: 4 },
-  { name: 'Quiz Night Newbie', emoji: '📚', tier: 'medium', segments: 4 },
+  { name: 'Contestant', emoji: '🎟️', tier: 'easy', segments: 3 },
+  { name: 'Qualifier', emoji: '📝', tier: 'easy', segments: 4 },
+  { name: 'Quiz Apprentice', emoji: '📚', tier: 'medium', segments: 4 },
   { name: 'Brainbox', emoji: '🧠', tier: 'medium', segments: 5 },
-  { name: 'Quiz Night Champion', emoji: '🏆', tier: 'medium', segments: 5 },
-  { name: 'Legend of the Lanes', emoji: '⚡', tier: 'hard', segments: 6 },
-  { name: 'Pub Legend', emoji: '🚀', tier: 'hard', segments: 6 },
-  { name: 'Machine Master', emoji: '👑', tier: 'hard', segments: 8 },
+  { name: 'Semi-Finalist', emoji: '🏆', tier: 'medium', segments: 5 },
+  { name: 'Finalist', emoji: '⚡', tier: 'hard', segments: 6 },
+  { name: 'Champion', emoji: '🚀', tier: 'hard', segments: 6 },
+  { name: 'Grandmaster', emoji: '👑', tier: 'hard', segments: 8 },
 ];
 
 export const BASE_POINTS = { easy: 100, medium: 200, hard: 300 };

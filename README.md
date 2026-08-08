@@ -7,7 +7,7 @@ The pub quiz machine, at home. 4-answer questions, 3 lives, an 8-rank ladder, an
 ## Features
 
 - **1,300+ questions** across 10 categories (food, general, geography, history, music, science, sport, TV & film, animals, tech), fact-checked against Wikipedia
-- **8-rank progression ladder** — 🍺 Glass Collector up to 👑 Machine Master, with a segmented progress bar that fills on correct answers and drains on wrong ones
+- **8-rank progression ladder** — 🎟️ Contestant up to 👑 Grandmaster, with a segmented progress bar that fills on correct answers and drains on wrong ones
 - **Quizbert the host** — roasts you for wrong answers (politely escalating), dishes backhanded compliments when you're right, and delivers "words from our sponsors" at milestones
 - **Public-domain saloon music** — a rotating playlist of Scott Joplin piano rolls (The Entertainer, Maple Leaf Rag and more), with an easy MUSIC ON/OFF toggle
 - **20-second question timer** with accelerating heartbeat and a red vignette as time runs out
