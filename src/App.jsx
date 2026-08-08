@@ -6,6 +6,7 @@ import './styles.css';
 
 const STORAGE = {
   best: 'itbox_best',
+  bestRank: 'itbox_best_rank',
   seen: 'itbox_seen',
 };
 
@@ -39,6 +40,20 @@ function loadBest() {
 function saveBest(score) {
   try {
     localStorage.setItem(STORAGE.best, String(score));
+  } catch { /* noop */ }
+}
+
+function loadBestRank() {
+  try {
+    return parseInt(localStorage.getItem(STORAGE.bestRank) || '0', 10);
+  } catch {
+    return 0;
+  }
+}
+
+function saveBestRank(rank) {
+  try {
+    localStorage.setItem(STORAGE.bestRank, String(rank));
   } catch { /* noop */ }
 }
 
@@ -224,6 +239,7 @@ function App() {
   const [question, setQuestion] = useState(null);
   const [bank, setBank] = useState(null);
   const [best, setBest] = useState(loadBest());
+  const [bestRank, setBestRank] = useState(loadBestRank());
   const [lastResult, setLastResult] = useState(null); // {correct, chosen, correctIndex}
   const [quizbert, setQuizbert] = useState(null); // {text, kind, face, sponsor?}
   const [presentLine, setPresentLine] = useState(null); // Quizbert's "for £X" line
@@ -367,6 +383,10 @@ function App() {
           saveBest(game.score);
           setBest(game.score);
         }
+        if (game.rank > loadBestRank()) {
+          saveBestRank(game.rank);
+          setBestRank(game.rank);
+        }
         setScreen('gameover');
       } else {
         const next = pickQuestion(game, bank);
@@ -479,6 +499,9 @@ function App() {
           </div>
           <div className="quizbert-banner">with your host, <strong>Quizbert</strong> 🎩</div>
           <div className="best-score">Best: {best.toLocaleString()} pts</div>
+          {bestRank > 0 && (
+            <div className="best-rank">Highest rank: {RANKS[bestRank].emoji} {RANKS[bestRank].name}</div>
+          )}
           <button className="big-btn play-btn" onClick={startGame}>
             TAP TO PLAY
           </button>
