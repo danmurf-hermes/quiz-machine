@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createGame, pickQuestion, answerQuestion, tierForStreak, BASE_POINTS } from './game/engine';
-import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, unlockAudio, vibrate } from './game/sounds';
-import { burst } from './game/confetti';
+import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, unlockAudio, vibrate } from './game/sounds';
+import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
 
 const STORAGE = {
@@ -64,6 +64,9 @@ const QUIZBERT_QUIPS = {
     'Right you are, contestant!',
     'Ooh, lovely stuff!',
     'The machine approves!',
+    'Correct! The machine is delighted!',
+    'Yes! That\'s the stuff!',
+    'The machine hums with approval!',
   ],
   wrong: [
     'Oh dear. Oh dear oh dear.',
@@ -77,6 +80,9 @@ const QUIZBERT_QUIPS = {
     'Too slow, contestant! The clock is merciless!',
     'The sands of time have run out!',
     'Tick tock! The machine moves on!',
+    'The clock beat you. The CLOCK.',
+    'I\'ve seen glaciers move faster, and they weren\'t even trying.',
+    'That\'s what happens when you bring a nap to a quiz show.',
   ],
   milestone: [
     'Splendid stuff!',
@@ -86,13 +92,58 @@ const QUIZBERT_QUIPS = {
     'Ooh, what a corker!',
   ],
   gameOver: [
-    'Unlucky, contestant!',
     'The machine giveth, and the machine taketh away.',
     'I\'ve seen better, but I\'ve also seen much worse.',
     'The pub quiz circuit will be hearing about this.',
     'The machine remembers. The machine always remembers.',
+    'That performance was so bad the sponsors are reconsidering.',
+    'You made the machine sad. The MACHINE. Sad.',
+    'I\'d say "better luck next time" but luck wasn\'t the problem.',
+    'The machine is going to need a lie down after that.',
   ],
 };
+
+// Roasts escalate with consecutive wrongs — Quizbert gets meaner
+const QUIZBERT_ROASTS = {
+  mild: [
+    'A valiant effort, contestant. A valiant, misguided effort.',
+    'The audience winces. I wince. We all wince.',
+    'That answer was so wrong it circled back to impressive.',
+    'Even the machine felt that one.',
+    'Ooh, that one got away from us. Way, way away.',
+  ],
+  spicy: [
+    'Are you even trying, or is this performance art?',
+    'My grandmother could do better, and she\'s a toaster.',
+    'That was the wrong answer in every universe. Every. Single. One.',
+    'I\'ve seen better answers from a broken calculator.',
+    'The machine is starting to question its life choices.',
+  ],
+  nuclear: [
+    'Is this a cry for help? Should I call someone?',
+    'The machine is now legally required to tell you to take a break.',
+    'I\'d say that was your worst answer yet, but you keep raising the bar.',
+    'Somewhere, a pub quiz machine just felt a great disturbance.',
+    'At this point I\'m just impressed by the commitment to being wrong.',
+  ],
+};
+
+function roastFor(wrongs) {
+  const tier = wrongs >= 3 ? 'nuclear' : wrongs === 2 ? 'spicy' : 'mild';
+  const pool = QUIZBERT_ROASTS[tier];
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+function gameOverLine(score) {
+  if (score === 0) {
+    return 'Zero. Not a single point. The machine has seen everything now.';
+  }
+  if (score < 1000) {
+    return 'The machine giveth, and the machine taketh away.';
+  }
+  const pool = QUIZBERT_QUIPS.gameOver;
+  return pool[Math.floor(Math.random() * pool.length)];
+}
 
 // Question presentation lines — {v} is replaced with the points on offer
 const QUIZBERT_PRESENT = [
@@ -138,8 +189,26 @@ function App() {
   const [finalStreak, setFinalStreak] = useState(0);
   const [cash, setCash] = useState(0);
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
+  const [consecutiveWrongs, setConsecutiveWrongs] = useState(0);
+  const [popup, setPopup] = useState(null); // {text, kind, id} floating text
+  const [flash, setFlash] = useState(null); // {kind, id} full-screen colour flash
+  const [shake, setShake] = useState(false); // screen shake on wrong
   const cashTimer = useRef(null);
   const heartbeatTimer = useRef(null);
+  const popupId = useRef(0);
+  const flashId = useRef(0);
+
+  function showPopup(text, kind) {
+    popupId.current += 1;
+    setPopup({ text, kind, id: popupId.current });
+    setTimeout(() => setPopup((p) => (p && p.id === popupId.current ? null : p)), 1100);
+  }
+
+  function showFlash(kind) {
+    flashId.current += 1;
+    setFlash({ kind, id: flashId.current });
+    setTimeout(() => setFlash((f) => (f && f.id === flashId.current ? null : f)), 800);
+  }
 
   // Load question bank once
   useEffect(() => {
@@ -172,6 +241,7 @@ function App() {
     setQuestion(q);
     setLastResult(null);
     setCash(0);
+    setConsecutiveWrongs(0);
     // Quizbert introduces himself, full screen
     setQuizbert({
       kind: 'intro',
@@ -221,15 +291,21 @@ function App() {
     const result = answerQuestion(game, question, -1); // -1 is never correct
     saveSeen(game.seen);
     setLastResult({ correct: false, chosen: -1, correctIndex: question.c });
+    const wrongs = consecutiveWrongs + 1;
+    setConsecutiveWrongs(wrongs);
+    setShake(true);
+    setTimeout(() => setShake(false), 600);
+    showFlash('bad');
+    showPopup('TIME\'S UP!', 'bad');
     setQuizbert({
       kind: 'timeout',
       text: QUIZBERT_QUIPS.timeout[Math.floor(Math.random() * QUIZBERT_QUIPS.timeout.length)],
       face: QUIZBERT_FACES.timeout,
     });
-    advanceAfter(result);
+    advanceAfter(result, wrongs);
   }
 
-  function advanceAfter(result) {
+  function advanceAfter(result, wrongs = 0) {
     setTimeout(() => {
       if (result.state.over) {
         playGameOver();
@@ -237,7 +313,7 @@ function App() {
         setFinalStreak(game.streak);
         setQuizbert({
           kind: 'gameover',
-          text: QUIZBERT_QUIPS.gameOver[Math.floor(Math.random() * QUIZBERT_QUIPS.gameOver.length)],
+          text: gameOverLine(game.score),
           face: QUIZBERT_FACES.gameover,
         });
         if (game.score > loadBest()) {
@@ -257,7 +333,9 @@ function App() {
         const kind = result.correct ? (result.milestone ? 'milestone' : 'correct') : 'wrong';
         const qb = {
           kind,
-          text: QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)],
+          text: result.correct
+            ? QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)]
+            : roastFor(wrongs),
           face: QUIZBERT_FACES[kind],
         };
         if (result.milestone) {
@@ -269,6 +347,7 @@ function App() {
           setQuizbert(null);
           setQuestion(next);
           setLastResult(null);
+          playWhoosh();
           // Quizbert presents the next question
           setPresentLine(presentFor(game, next));
         }, delay);
@@ -282,10 +361,15 @@ function App() {
     saveSeen(game.seen);
     setLastResult({ correct: result.correct, chosen, correctIndex: question.c });
 
+    const wrongs = result.correct ? 0 : consecutiveWrongs + 1;
+    setConsecutiveWrongs(wrongs);
+
     if (result.correct) {
       playCorrect(game.streak);
       vibrate(30);
       burst(0.5, 0.45, 30);
+      showFlash('good');
+      showPopup(`+£${pointsOnOffer(game, question).toLocaleString()}`, 'good');
       // Cash pot count-up
       clearInterval(cashTimer.current);
       const target = game.score;
@@ -298,13 +382,22 @@ function App() {
       if (result.milestone) {
         playMilestone();
         vibrate([60, 40, 60]);
+        bigBurst(0.5, 0.3, 90);
+        streamers();
+        showFlash('milestone');
+        showPopup(`STREAK ×${game.streak}!`, 'milestone');
       }
     } else {
       playWrong();
+      playRoast();
       vibrate([80, 60, 80]);
+      setShake(true);
+      setTimeout(() => setShake(false), 600);
+      showFlash('bad');
+      showPopup('WRONG!', 'bad');
     }
 
-    advanceAfter(result);
+    advanceAfter(result, wrongs);
   }
 
   if (!bank) {
@@ -312,7 +405,11 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className={`app ${shake ? 'shake' : ''}`}>
+      {flash && <div key={flash.id} className={`screen-flash ${flash.kind}`} />}
+      {popup && <div key={popup.id} className={`popup ${popup.kind}`}>{popup.text}</div>}
+      {screen === 'playing' && timeLeft <= 2 && <div className="danger-vignette" />}
+
       {screen === 'title' && (
         <div className="screen title-screen">
           <div className="logo">
@@ -331,7 +428,7 @@ function App() {
       {screen === 'playing' && game && question && (
         <div className="screen game-screen">
           <div className="hud">
-            <div className="lives">
+            <div className={`lives ${lastResult && !lastResult.correct ? 'just-lost' : ''}`}>
               {[0, 1, 2].map((i) => (
                 <span key={i} className={`heart ${i < game.lives ? 'alive' : 'dead'}`}>♥</span>
               ))}
@@ -355,12 +452,12 @@ function App() {
             </div>
           )}
 
-          <div className={`question-card ${lastResult ? (lastResult.correct ? 'flash-good' : 'flash-bad') : ''}`}>
+          <div key={question.id} className={`question-card ${game.streak >= 5 ? 'hot' : ''} ${lastResult ? (lastResult.correct ? 'flash-good' : 'flash-bad') : ''}`}>
             <div className="tier-tag">{tierForStreak(game.streak).toUpperCase()}</div>
             <div className="question-text">{question.q}</div>
           </div>
 
-          <div className="answers">
+          <div key={question.id} className="answers">
             {question.a.map((ans, i) => {
               let cls = 'answer-btn';
               if (lastResult) {

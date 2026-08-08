@@ -82,6 +82,31 @@ export function playTimeout() {
   tone(200, 0.3, 0.3, 'square', 0.12);
 }
 
+// Sad trombone — the roast sting. Wah wah waaaaah.
+export function playRoast() {
+  const notes = [233, 233, 233, 196, 155];
+  const durs = [0.12, 0.12, 0.12, 0.18, 0.5];
+  notes.forEach((f, i) => tone(f, i * 0.14, durs[i], 'sawtooth', 0.1));
+}
+
+// Whoosh — question transition
+export function playWhoosh() {
+  const c = ensureCtx();
+  if (!c) return;
+  const dur = 0.25;
+  const osc = c.createOscillator();
+  const gain = c.createGain();
+  osc.type = 'sine';
+  osc.frequency.setValueAtTime(200, c.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(900, c.currentTime + dur);
+  gain.gain.setValueAtTime(0.001, c.currentTime);
+  gain.gain.linearRampToValueAtTime(0.08, c.currentTime + 0.05);
+  gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + dur);
+  osc.connect(gain).connect(c.destination);
+  osc.start(c.currentTime);
+  osc.stop(c.currentTime + dur + 0.05);
+}
+
 // Call once from a user gesture to unlock audio
 export function unlockAudio() {
   ensureCtx();
