@@ -1,16 +1,36 @@
-# React + Vite
+# Quiz Machine 🎰
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The pub quiz machine, at home. 4-answer questions, 3 lives, an 8-rank ladder, and Quizbert — a host with opinions about your answers.
 
-Currently, two official plugins are available:
+**Play it:** https://danmurf-hermes.github.io/quiz-machine/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **1,300+ questions** across 10 categories (food, general, geography, history, music, science, sport, TV & film, animals, tech), fact-checked against Wikipedia
+- **8-rank progression ladder** — 🍺 Glass Collector up to 👑 Machine Master, with a segmented progress bar that fills on correct answers and drains on wrong ones
+- **Quizbert the host** — roasts you for wrong answers (politely escalating), dishes backhanded compliments when you're right, and delivers "words from our sponsors" at milestones
+- **Public-domain saloon music** — a rotating playlist of Scott Joplin piano rolls (The Entertainer, Maple Leaf Rag and more), with an easy MUSIC ON/OFF toggle
+- **20-second question timer** with accelerating heartbeat and a red vignette as time runs out
+- **Game juice everywhere** — confetti, screen shake, floating score popups, rank-up celebration screens with fanfare, haptics on mobile
+- **PWA-lite** — service worker caches everything so it works offline in the pub after first visit
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech
 
-## Expanding the Oxlint configuration
+- React 19 + Vite 8, static build, no backend
+- Questions ship as JSON in `public/data/` (easy/medium/hard tiers)
+- localStorage for best score + seen questions (no accounts, no tracking)
+- Deployed via GitHub Pages (gh-pages branch)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Credits
+
+- **Questions:** facts verified against Wikipedia (CC BY-SA). The `cat` field in the data files carries the category tag.
+- **Music:** Scott Joplin piano roll recordings (public domain, via Wikimedia Commons). Joplin died in 1917; the compositions are public domain.
+
+## Local dev
+
+```sh
+npm install
+npm run dev        # dev server
+npm run build      # production build to dist/
+npx vitest run     # engine tests
+```
