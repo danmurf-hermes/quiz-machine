@@ -24,18 +24,14 @@ const SHARE_URL = (() => {
   return 'https://danmurf-hermes.github.io/quiz-machine/';
 })();
 
-// The brag — rank emoji + score + challenge, with a bit of Quizbert's tone
-function shareTextFor(rank, score, streak) {
+// The brag — short and curious: rank emoji + name + position + hook + link
+function shareTextFor(rank) {
   const r = RANKS[rank];
-  const scoreBit = ` (${score.toLocaleString()} pts, best streak ${streak})`;
-  const challenge = ` Think you can beat me? ${SHARE_URL}`;
-  if (rank === 0) {
-    return `I just reached ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit} Don't laugh, it's a start!${challenge}`;
-  }
+  const pos = `${rank + 1}/${RANKS.length}`;
   if (rank === RANKS.length - 1) {
-    return `I just conquered ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit}${challenge}`;
+    return `I conquered ${r.emoji} ${r.name} (${pos}) on Quiz Machine. Beat me? ${SHARE_URL}`;
   }
-  return `I just reached ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit}${challenge}`;
+  return `I got ${r.emoji} ${r.name} (${pos}) on Quiz Machine. Beat me? ${SHARE_URL}`;
 }
 
 function loadSeen() {
@@ -547,22 +543,8 @@ function App() {
     advanceAfter(result, wrongs);
   }
 
-  function handleShare() {
-    const text = shareTextFor(finalRank, finalScore, finalStreak);
-    if (navigator.share) {
-      navigator.share({ text, url: SHARE_URL }).catch(() => {});
-    } else {
-      try {
-        navigator.clipboard.writeText(`${text} ${SHARE_URL}`);
-        showPopup('COPIED!', 'good');
-      } catch {
-        showPopup('SHARE FAILED', 'bad');
-      }
-    }
-  }
-
   function handleTweet() {
-    const text = shareTextFor(finalRank, finalScore, finalStreak);
+    const text = shareTextFor(finalRank);
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener');
   }
@@ -742,14 +724,9 @@ function App() {
           <div className="final-score">{finalScore.toLocaleString()} pts</div>
           <div className="final-rank">{RANKS[finalRank].emoji} Rank reached: {RANKS[finalRank].name}</div>
           <div className="final-streak">Best streak: {finalStreak}</div>
-          <div className="share-row">
-            <button className="share-btn" onClick={handleShare}>
-              📤 Share
-            </button>
-            <button className="share-btn tweet" onClick={handleTweet}>
-              🐦 Post to X
-            </button>
-          </div>
+          <button className="share-btn tweet" onClick={handleTweet}>
+            🐦 Post to X
+          </button>
           <button className="big-btn play-btn" onClick={startGame}>
             ONE MORE GO
           </button>
