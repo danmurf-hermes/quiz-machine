@@ -1,30 +1,33 @@
 # Quiz Machine 🎰
 
-The pub quiz machine, at home. 4-answer questions, 3 lives, an 8-rank ladder, and Quizbert — a host with opinions about your answers.
+A pub quiz, made for your phone. Four answers, three lives, eight ranks — and Quizbert, a host with opinions about your answers.
 
 **Play it:** https://danmurf-hermes.github.io/quiz-machine/
 
-## Features
+## What is it?
 
-- **1,300+ questions** across 10 categories (food, general, geography, history, music, science, sport, TV & film, animals, tech), fact-checked against Wikipedia
-- **8-rank progression ladder** — 🎟️ Contestant up to 👑 Grandmaster, with a segmented progress bar that fills on correct answers and drains on wrong ones
-- **Quizbert the host** — roasts you for wrong answers (politely escalating), dishes backhanded compliments when you're right, and delivers "words from our sponsors" at milestones
-- **Public-domain saloon music** — a rotating playlist of Scott Joplin piano rolls (The Entertainer, Maple Leaf Rag and more), with an easy MUSIC ON/OFF toggle
-- **20-second question timer** with accelerating heartbeat and a red vignette as time runs out
-- **Game juice everywhere** — confetti, screen shake, floating score popups, rank-up celebration screens with fanfare, haptics on mobile
-- **PWA-lite** — service worker caches everything so it works offline in the pub after first visit
+Quiz Machine is a quick-fire pub quiz that works great on a phone. Tap to play, answer as many questions as you can, and climb the ranks from 🎟️ Contestant all the way to 👑 Grandmaster. Get three wrong and it's game over — Quizbert will have something to say about it.
+
+## Why you'll like it
+
+- **1,300+ questions** across 10 categories — food, general, geography, history, music, science, sport, TV & film, animals and tech. All fact-checked against Wikipedia.
+- **8 ranks to climb** — a progress bar that fills when you're right and drains when you're wrong. Rank up and the questions get harder.
+- **Quizbert the host** — roasts you when you're wrong (politely, at first), gives backhanded compliments when you're right, and reads out "words from our sponsors" at milestones.
+- **Saloon music** — a rotating playlist of public-domain Scott Joplin piano rolls. Easy MUSIC ON/OFF button if you'd rather have silence.
+- **20 seconds per question** — the heartbeat speeds up as time runs out. No dawdling.
+- **Made for the pub** — after your first visit, everything's cached, so it works offline. No signal, no problem.
+- **No accounts, no tracking, no ads** — just a quiz. Your best score lives in your browser.
 
 ## Tech
 
-- React 19 + Vite 8, static build, no backend
-- Questions ship as JSON in `public/data/` (easy/medium/hard tiers)
-- localStorage for best score + seen questions (no accounts, no tracking)
-- Deployed via GitHub Pages (gh-pages branch)
+- React + Vite, static build, no backend
+- Questions ship as JSON in `public/data/`
+- Deployed to GitHub Pages automatically via GitHub Actions — push to `main`, it goes live
 
 ## Credits
 
-- **Questions:** facts verified against Wikipedia (CC BY-SA). The `cat` field in the data files carries the category tag.
-- **Music:** Scott Joplin piano roll recordings (public domain, via Wikimedia Commons). Joplin died in 1917; the compositions are public domain.
+- **Questions:** facts verified against Wikipedia (CC BY-SA)
+- **Music:** Scott Joplin piano roll recordings, public domain via Wikimedia Commons
 
 ## Local dev
 
