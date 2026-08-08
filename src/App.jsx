@@ -15,6 +15,29 @@ const QUESTION_TIME = 20; // seconds per question
 const HEARTBEAT_START = 8; // seconds remaining when heartbeat begins
 const HEARTBEAT_MIN_GAP = 250; // ms — fastest heartbeat
 
+// Public URL used in share text — falls back to the live site when running on LAN
+const SHARE_URL = (() => {
+  try {
+    const { origin, pathname } = window.location;
+    if (origin.includes('github.io')) return origin + pathname;
+  } catch { /* noop */ }
+  return 'https://danmurf-hermes.github.io/quiz-machine/';
+})();
+
+// The brag — rank emoji + score + challenge, with a bit of Quizbert's tone
+function shareTextFor(rank, score, streak) {
+  const r = RANKS[rank];
+  const scoreBit = ` (${score.toLocaleString()} pts, best streak ${streak})`;
+  const challenge = ` Think you can beat me? ${SHARE_URL}`;
+  if (rank === 0) {
+    return `I just reached ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit} Don't laugh, it's a start!${challenge}`;
+  }
+  if (rank === RANKS.length - 1) {
+    return `I just conquered ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit}${challenge}`;
+  }
+  return `I just reached ${r.emoji} ${r.name} on Quiz Machine! 🎰${scoreBit}${challenge}`;
+}
+
 function loadSeen() {
   try {
     const raw = localStorage.getItem(STORAGE.seen);
@@ -524,6 +547,26 @@ function App() {
     advanceAfter(result, wrongs);
   }
 
+  function handleShare() {
+    const text = shareTextFor(finalRank, finalScore, finalStreak);
+    if (navigator.share) {
+      navigator.share({ text, url: SHARE_URL }).catch(() => {});
+    } else {
+      try {
+        navigator.clipboard.writeText(`${text} ${SHARE_URL}`);
+        showPopup('COPIED!', 'good');
+      } catch {
+        showPopup('SHARE FAILED', 'bad');
+      }
+    }
+  }
+
+  function handleTweet() {
+    const text = shareTextFor(finalRank, finalScore, finalStreak);
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
+  }
+
   if (!bank) {
     return <div className="app loading">Loading questions…</div>;
   }
@@ -699,6 +742,14 @@ function App() {
           <div className="final-score">{finalScore.toLocaleString()} pts</div>
           <div className="final-rank">{RANKS[finalRank].emoji} Rank reached: {RANKS[finalRank].name}</div>
           <div className="final-streak">Best streak: {finalStreak}</div>
+          <div className="share-row">
+            <button className="share-btn" onClick={handleShare}>
+              📤 Share
+            </button>
+            <button className="share-btn tweet" onClick={handleTweet}>
+              🐦 Post to X
+            </button>
+          </div>
           <button className="big-btn play-btn" onClick={startGame}>
             ONE MORE GO
           </button>

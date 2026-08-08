@@ -791,3 +791,26 @@ body::before {
 }
 
 .final-streak { font-size: 1.1rem; color: var(--orange); font-weight: 700; }
+
+.share-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.share-btn {
+  border: 2px solid rgba(255,255,255,0.3);
+  background: rgba(45, 27, 78, 0.8);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 48px;
+  transition: transform 0.1s, border-color 0.2s;
+}
+
+.share-btn:active { transform: scale(0.94); }
+.share-btn.tweet { border-color: var(--blue); color: var(--blue); }
