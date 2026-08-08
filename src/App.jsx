@@ -24,14 +24,11 @@ const SHARE_URL = (() => {
   return 'https://danmurf-hermes.github.io/quiz-machine/';
 })();
 
-// The brag — short and curious: rank emoji + name + position + hook + link
+// The brag — pure flex: emoji + rank name + position + link
 function shareTextFor(rank) {
   const r = RANKS[rank];
   const pos = `${rank + 1}/${RANKS.length}`;
-  if (rank === RANKS.length - 1) {
-    return `I conquered ${r.emoji} ${r.name} (${pos}) on Quiz Machine. Beat me? ${SHARE_URL}`;
-  }
-  return `I got ${r.emoji} ${r.name} (${pos}) on Quiz Machine. Beat me? ${SHARE_URL}`;
+  return `${r.emoji} ${r.name} (${pos}) ${SHARE_URL}`;
 }
 
 function loadSeen() {
