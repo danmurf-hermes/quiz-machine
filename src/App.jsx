@@ -406,8 +406,8 @@ function App() {
 
   return (
     <div className={`app ${shake ? 'shake' : ''}`}>
-      {flash && <div key={flash.id} className={`screen-flash ${flash.kind}`} />}
-      {popup && <div key={popup.id} className={`popup ${popup.kind}`}>{popup.text}</div>}
+      {flash && <div key={`flash-${flash.id}`} className={`screen-flash ${flash.kind}`} />}
+      {popup && <div key={`popup-${popup.id}`} className={`popup ${popup.kind}`}>{popup.text}</div>}
       {screen === 'playing' && timeLeft <= 2 && <div className="danger-vignette" />}
 
       {screen === 'title' && (
@@ -457,7 +457,7 @@ function App() {
             <div className="question-text">{question.q}</div>
           </div>
 
-          <div key={question.id} className="answers">
+          <div key={`answers-${question.id}`} className="answers">
             {question.a.map((ans, i) => {
               let cls = 'answer-btn';
               if (lastResult) {
