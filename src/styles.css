@@ -233,6 +233,18 @@ body::before {
   50% { transform: translateY(-10px) rotate(3deg); }
 }
 
+/* Quizbert's mocking laugh — the face rocks side to side */
+.quizbert-full.laughing .quizbert-face {
+  animation: face-laugh 0.5s ease-in-out infinite;
+}
+
+@keyframes face-laugh {
+  0%, 100% { transform: rotate(-12deg) scale(1); }
+  25% { transform: rotate(12deg) scale(1.1); }
+  50% { transform: rotate(-12deg) scale(1.15); }
+  75% { transform: rotate(12deg) scale(1.1); }
+}
+
 .quizbert-face.small { font-size: 3.5rem; animation: none; }
 
 .quizbert-line {

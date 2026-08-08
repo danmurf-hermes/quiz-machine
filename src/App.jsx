@@ -103,35 +103,48 @@ const QUIZBERT_QUIPS = {
   ],
 };
 
-// Roasts escalate with consecutive wrongs — Quizbert gets meaner
+// Roasts escalate with consecutive wrongs — Quizbert gets meaner and laughs at you
 const QUIZBERT_ROASTS = {
-  mild: [
-    'A valiant effort, contestant. A valiant, misguided effort.',
-    'The audience winces. I wince. We all wince.',
-    'That answer was so wrong it circled back to impressive.',
-    'Even the machine felt that one.',
-    'Ooh, that one got away from us. Way, way away.',
-  ],
-  spicy: [
-    'Are you even trying, or is this performance art?',
-    'My grandmother could do better, and she\'s a toaster.',
-    'That was the wrong answer in every universe. Every. Single. One.',
-    'I\'ve seen better answers from a broken calculator.',
-    'The machine is starting to question its life choices.',
-  ],
-  nuclear: [
-    'Is this a cry for help? Should I call someone?',
-    'The machine is now legally required to tell you to take a break.',
-    'I\'d say that was your worst answer yet, but you keep raising the bar.',
-    'Somewhere, a pub quiz machine just felt a great disturbance.',
-    'At this point I\'m just impressed by the commitment to being wrong.',
-  ],
+  mild: {
+    face: '😏',
+    lines: [
+      'Oh dear. Was that a guess, or a cry for help?',
+      'The audience is laughing, contestant. At you, not with you.',
+      'That answer just retired from professional quizzing.',
+      'I\'ve seen better answers from a sleeping pigeon.',
+      'Even the wrong answers are embarrassed by that one.',
+    ],
+  },
+  spicy: {
+    face: '😂',
+    lines: [
+      'Are you even trying, or is this performance art?',
+      'My toaster has answered more questions correctly than you.',
+      'That was so wrong it\'s now a museum exhibit.',
+      'I\'d say "think harder", but I\'m not sure you have the equipment.',
+      'The machine has seen bad answers. That one made the machine weep.',
+    ],
+  },
+  nuclear: {
+    face: '🤣',
+    lines: [
+      'Is this a cry for help? Should I call someone?',
+      'I\'ve met potatoes with better quiz instincts than you.',
+      'You\'re making the other wrong answers look good.',
+      'At this point I\'m just impressed by the commitment to being wrong.',
+      'The machine is now legally required to tell you to take a break.',
+      'Somewhere, a pub quiz machine just felt a great disturbance.',
+    ],
+  },
 };
 
 function roastFor(wrongs) {
   const tier = wrongs >= 3 ? 'nuclear' : wrongs === 2 ? 'spicy' : 'mild';
   const pool = QUIZBERT_ROASTS[tier];
-  return pool[Math.floor(Math.random() * pool.length)];
+  return {
+    text: pool.lines[Math.floor(Math.random() * pool.lines.length)],
+    face: pool.face,
+  };
 }
 
 function gameOverLine(score) {
@@ -297,10 +310,11 @@ function App() {
     setTimeout(() => setShake(false), 600);
     showFlash('bad');
     showPopup('TIME\'S UP!', 'bad');
+    const roast = roastFor(wrongs);
     setQuizbert({
       kind: 'timeout',
       text: QUIZBERT_QUIPS.timeout[Math.floor(Math.random() * QUIZBERT_QUIPS.timeout.length)],
-      face: QUIZBERT_FACES.timeout,
+      face: roast.face,
     });
     advanceAfter(result, wrongs);
   }
@@ -331,12 +345,13 @@ function App() {
           return;
         }
         const kind = result.correct ? (result.milestone ? 'milestone' : 'correct') : 'wrong';
+        const roast = result.correct ? null : roastFor(wrongs);
         const qb = {
           kind,
           text: result.correct
             ? QUIZBERT_QUIPS[kind][Math.floor(Math.random() * QUIZBERT_QUIPS[kind].length)]
-            : roastFor(wrongs),
-          face: QUIZBERT_FACES[kind],
+            : roast.text,
+          face: result.correct ? QUIZBERT_FACES[kind] : roast.face,
         };
         if (result.milestone) {
           qb.sponsor = SPONSORS[Math.floor(Math.random() * SPONSORS.length)];
@@ -480,7 +495,7 @@ function App() {
           </div>
 
           {quizbert && quizbert.kind !== 'gameover' && (
-            <div className={`quizbert-full ${quizbert.kind}`}>
+            <div className={`quizbert-full ${quizbert.kind} ${['😏', '😂', '🤣'].includes(quizbert.face) ? 'laughing' : ''}`}>
               <div className="quizbert-face">{quizbert.face}</div>
               <div className="quizbert-line">{quizbert.text}</div>
               {quizbert.sponsor && (

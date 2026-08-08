@@ -82,11 +82,11 @@ export function playTimeout() {
   tone(200, 0.3, 0.3, 'square', 0.12);
 }
 
-// Sad trombone — the roast sting. Wah wah waaaaah.
+// Quizbert's mocking laugh — heh heh heh HA!
 export function playRoast() {
-  const notes = [233, 233, 233, 196, 155];
-  const durs = [0.12, 0.12, 0.12, 0.18, 0.5];
-  notes.forEach((f, i) => tone(f, i * 0.14, durs[i], 'sawtooth', 0.1));
+  const notes = [392, 392, 330, 330, 262, 262, 196];
+  const durs = [0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.3];
+  notes.forEach((f, i) => tone(f, i * 0.11, durs[i], 'square', 0.09));
 }
 
 // Whoosh — question transition
