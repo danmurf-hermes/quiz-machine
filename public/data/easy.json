@@ -1,0 +1,5683 @@
+[
+ {
+  "id": "e1",
+  "q": "The American Civil War was fought between the Union and which side?",
+  "a": [
+   "The British Empire",
+   "The French",
+   "The Loyalists",
+   "The Confederacy"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e2",
+  "q": "The Ottoman Empire was centred on which modern country?",
+  "a": [
+   "Greece",
+   "Egypt",
+   "Turkey",
+   "Iran"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e3",
+  "q": "Which company makes the MacBook?",
+  "a": [
+   "HP",
+   "Apple",
+   "Lenovo",
+   "Dell"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e4",
+  "q": "How often is the FIFA World Cup held?",
+  "a": [
+   "Every two years",
+   "Every three years",
+   "Every four years",
+   "Every five years"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e5",
+  "q": "In The Lion King, which of these is Simba's warthog friend?",
+  "a": [
+   "Timon",
+   "Zazu",
+   "Rafiki",
+   "Pumbaa"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e6",
+  "q": "What vegetable are French fries made from?",
+  "a": [
+   "Parsnips",
+   "Carrots",
+   "Sweet potatoes",
+   "Potatoes"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e7",
+  "q": "In which fictional town do The Simpsons live?",
+  "a": [
+   "Springfield",
+   "Ogdenville",
+   "North Haverbrook",
+   "Shelbyville"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e8",
+  "q": "What does \"CPU\" stand for?",
+  "a": [
+   "Core Processing Unit",
+   "Central Program Utility",
+   "Central Processing Unit",
+   "Computer Personal Unit"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e9",
+  "q": "Which swimming stroke is generally the fastest?",
+  "a": [
+   "Breaststroke",
+   "Butterfly",
+   "Backstroke",
+   "Freestyle (front crawl)"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e10",
+  "q": "Which lizard is famous for changing colour?",
+  "a": [
+   "Chameleon",
+   "Gecko",
+   "Iguana",
+   "Skink"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e11",
+  "q": "Which planet is often called the 'morning star' or 'evening star'?",
+  "a": [
+   "Venus",
+   "Mars",
+   "Mercury",
+   "Jupiter"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e12",
+  "q": "Which Roman emperor is famously said to have 'fiddled while Rome burned'?",
+  "a": [
+   "Nero",
+   "Caligula",
+   "Augustus",
+   "Vespasian"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e13",
+  "q": "What do honey bees collect from flowers to make honey?",
+  "a": [
+   "Nectar",
+   "Pollen dust",
+   "Dew",
+   "Sap"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e14",
+  "q": "What was the title of the rulers of ancient Egypt?",
+  "a": [
+   "Pharaoh",
+   "Caesar",
+   "Sultan",
+   "Shogun"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e15",
+  "q": "Which swimmer has won the most Olympic gold medals of all time?",
+  "a": [
+   "Mark Spitz",
+   "Michael Phelps",
+   "Ian Thorpe",
+   "Katie Ledecky"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e16",
+  "q": "What is a baby frog called?",
+  "a": [
+   "Pup",
+   "Cub",
+   "Chick",
+   "Tadpole"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e17",
+  "q": "DJs traditionally play and mix records using which equipment?",
+  "a": [
+   "Drum machines",
+   "Samplers",
+   "Turntables",
+   "Synthesisers"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e18",
+  "q": "Which of these is an operating system?",
+  "a": [
+   "Photoshop",
+   "Chrome",
+   "Minecraft",
+   "Linux"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e19",
+  "q": "In which city is the Eiffel Tower located?",
+  "a": [
+   "Paris",
+   "London",
+   "Rome",
+   "Berlin"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e20",
+  "q": "In tennis scoring, what does the term 'love' mean?",
+  "a": [
+   "Zero",
+   "One point",
+   "A fault",
+   "Deuce"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e21",
+  "q": "Which company makes the Kindle e-reader?",
+  "a": [
+   "Barnes & Noble",
+   "Apple",
+   "Amazon",
+   "Google"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e22",
+  "q": "How many zeros are in the number one thousand (1000)?",
+  "a": [
+   "Two",
+   "Three",
+   "Four",
+   "Five"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e23",
+  "q": "Which band recorded the 1980 album “Back in Black”?",
+  "a": [
+   "Def Leppard",
+   "Scorpions",
+   "AC/DC",
+   "Van Halen"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e24",
+  "q": "Which pharaoh's tomb was discovered almost intact in 1922?",
+  "a": [
+   "Ramesses II",
+   "Akhenaten",
+   "Seti I",
+   "Tutankhamun"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e25",
+  "q": "What is the name of the coffee house where the friends hang out in Friends?",
+  "a": [
+   "Central Perk",
+   "Café Nervosa",
+   "The Coffee Bean",
+   "Central Park"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e26",
+  "q": "Which famous ship sank in 1912?",
+  "a": [
+   "Lusitania",
+   "Titanic",
+   "Britannic",
+   "Queen Mary"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e27",
+  "q": "What was the name of the devastating plague that hit Europe in the 1300s?",
+  "a": [
+   "The Black Death",
+   "The Spanish Flu",
+   "Cholera",
+   "Typhoid"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e28",
+  "q": "Which band sang 'Yellow Submarine'?",
+  "a": [
+   "The Rolling Stones",
+   "The Beatles",
+   "The Who",
+   "Abba"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e29",
+  "q": "How many chambers does the human heart have?",
+  "a": [
+   "Four",
+   "Two",
+   "Three",
+   "Six"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e30",
+  "q": "What was the ancient trade route linking China with the Mediterranean called?",
+  "a": [
+   "The Amber Road",
+   "The Silk Road",
+   "The Spice Route",
+   "The Royal Road"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e31",
+  "q": "In cricket, how many stumps make up a wicket?",
+  "a": [
+   "2",
+   "3",
+   "4",
+   "5"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e32",
+  "q": "How many arms does an octopus have?",
+  "a": [
+   "Six",
+   "Ten",
+   "Eight",
+   "Twelve"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e33",
+  "q": "Which gas do plants absorb from the air?",
+  "a": [
+   "Oxygen",
+   "Nitrogen",
+   "Carbon dioxide",
+   "Hydrogen"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e34",
+  "q": "What is the name of Harry Potter's owl?",
+  "a": [
+   "Scabbers",
+   "Hedwig",
+   "Crookshanks",
+   "Fawkes"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e35",
+  "q": "Which country is famous for maple syrup?",
+  "a": [
+   "USA",
+   "Canada",
+   "Sweden",
+   "Norway"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e36",
+  "q": "The French Open tennis tournament is played on which type of court?",
+  "a": [
+   "Grass",
+   "Clay",
+   "Hard court",
+   "Carpet"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e37",
+  "q": "Which band released the 1968 single “Hey Jude”?",
+  "a": [
+   "The Beatles",
+   "The Who",
+   "The Kinks",
+   "The Rolling Stones"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e38",
+  "q": "In which country did modern football (soccer) originate?",
+  "a": [
+   "Brazil",
+   "Italy",
+   "England",
+   "Germany"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e39",
+  "q": "Which app is known for short vertical videos set to music?",
+  "a": [
+   "Reddit",
+   "Pinterest",
+   "LinkedIn",
+   "TikTok"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e40",
+  "q": "What colour do you get when you mix red and white?",
+  "a": [
+   "Orange",
+   "Purple",
+   "Pink",
+   "Brown"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e41",
+  "q": "What was the name of the first artificial satellite, launched in 1957?",
+  "a": [
+   "Explorer 1",
+   "Vostok 1",
+   "Sputnik 1",
+   "Apollo 1"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e42",
+  "q": "Which city hosted the 2012 Summer Olympic Games?",
+  "a": [
+   "Paris",
+   "Beijing",
+   "London",
+   "Rio de Janeiro"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e43",
+  "q": "How many sides does a triangle have?",
+  "a": [
+   "Two",
+   "Four",
+   "Three",
+   "Five"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e44",
+  "q": "Which company makes the PlayStation?",
+  "a": [
+   "Sega",
+   "Sony",
+   "Microsoft",
+   "Nintendo"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e45",
+  "q": "Which country won the 2023 FIFA Women's World Cup?",
+  "a": [
+   "England",
+   "United States",
+   "Spain",
+   "Australia"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e46",
+  "q": "Which of these is a dairy product?",
+  "a": [
+   "Tofu",
+   "Cheese",
+   "Oat milk",
+   "Hummus"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e47",
+  "q": "In The Little Mermaid, Ariel trades her voice to which sea witch?",
+  "a": [
+   "Maleficent",
+   "Ursula",
+   "Mother Gothel",
+   "Cruella de Vil"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e48",
+  "q": "Which of these is a search engine?",
+  "a": [
+   "Google",
+   "Spotify",
+   "Zoom",
+   "Netflix"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e49",
+  "q": "In which country is the Wimbledon tennis championships held?",
+  "a": [
+   "France",
+   "United States",
+   "England",
+   "Australia"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e50",
+  "q": "Who was the Soviet leader during the Cuban Missile Crisis?",
+  "a": [
+   "Joseph Stalin",
+   "Leonid Brezhnev",
+   "Mikhail Gorbachev",
+   "Nikita Khrushchev"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e51",
+  "q": "In Disney's The Lion King, what animal is Simba?",
+  "a": [
+   "Lion",
+   "Cheetah",
+   "Leopard",
+   "Tiger"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e52",
+  "q": "Flamenco music traditionally features which type of guitar?",
+  "a": [
+   "Flamenco guitar",
+   "Electric guitar",
+   "Bass guitar",
+   "Steel-string acoustic guitar"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e53",
+  "q": "Which national team does footballer Lionel Messi play for?",
+  "a": [
+   "Brazil",
+   "Argentina",
+   "Uruguay",
+   "Portugal"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e54",
+  "q": "What is the opposite of the word 'ancient'?",
+  "a": [
+   "Old",
+   "Historic",
+   "Modern",
+   "Antique"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e55",
+  "q": "What does \"email\" stand for?",
+  "a": [
+   "Electronic mail",
+   "Easy mail",
+   "Express mail",
+   "Electric mail"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e56",
+  "q": "The Tour de France is a famous race in which sport?",
+  "a": [
+   "Motor racing",
+   "Cycling",
+   "Horse racing",
+   "Sailing"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e57",
+  "q": "What is the largest species of big cat?",
+  "a": [
+   "Tiger",
+   "Lion",
+   "Leopard",
+   "Cheetah"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e58",
+  "q": "Which company makes Tesla electric cars?",
+  "a": [
+   "Toyota",
+   "Ford",
+   "Tesla",
+   "BMW"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e59",
+  "q": "Which bird lays the largest eggs of any living bird?",
+  "a": [
+   "Emu",
+   "Eagle",
+   "Ostrich",
+   "Swan"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e60",
+  "q": "Quiche is a savoury tart made with a filling of what?",
+  "a": [
+   "Cheese only",
+   "Rice",
+   "Eggs and cream",
+   "Mashed potato"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e61",
+  "q": "At what temperature does water freeze?",
+  "a": [
+   "0 degrees Celsius",
+   "5 degrees Celsius",
+   "-10 degrees Celsius",
+   "100 degrees Celsius"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e62",
+  "q": "What is the name of the Grinch's dog?",
+  "a": [
+   "Rudolph",
+   "Max",
+   "Buddy",
+   "Rex"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e63",
+  "q": "Sushi is traditionally made with what type of rice?",
+  "a": [
+   "Short-grain rice",
+   "Wild rice",
+   "Basmati rice",
+   "Long-grain rice"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e64",
+  "q": "The sitcom Seinfeld is famously described as a show about...",
+  "a": [
+   "Stand-up comedy",
+   "New York",
+   "Nothing",
+   "Coffee"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e65",
+  "q": "What does \"GPS\" stand for?",
+  "a": [
+   "General Positioning Service",
+   "Global Path System",
+   "Ground Positioning Satellite",
+   "Global Positioning System"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e66",
+  "q": "Ketchup is made primarily from what?",
+  "a": [
+   "Plums",
+   "Apples",
+   "Tomatoes",
+   "Peppers"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e67",
+  "q": "Which band recorded “Mr. Brightside”?",
+  "a": [
+   "The Strokes",
+   "Interpol",
+   "Franz Ferdinand",
+   "The Killers"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e68",
+  "q": "The Sydney Opera House is located in which country?",
+  "a": [
+   "New Zealand",
+   "South Africa",
+   "Australia",
+   "Canada"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e69",
+  "q": "What is the largest string instrument in a standard orchestra?",
+  "a": [
+   "Harp",
+   "Cello",
+   "Viola",
+   "Double bass"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e70",
+  "q": "Wine is made from fermented what?",
+  "a": [
+   "Honey",
+   "Barley",
+   "Apples",
+   "Grapes"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e71",
+  "q": "What special ability does Matilda have in the film Matilda?",
+  "a": [
+   "Mind reading",
+   "Telekinesis",
+   "Invisibility",
+   "Flight"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e72",
+  "q": "Which of these is a games console made by Nintendo?",
+  "a": [
+   "PlayStation 5",
+   "Sega Genesis",
+   "Xbox Series X",
+   "Nintendo Switch"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e73",
+  "q": "Which is the smallest planet in our solar system?",
+  "a": [
+   "Mars",
+   "Venus",
+   "Mercury",
+   "Pluto"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e74",
+  "q": "Which is the smallest prime number?",
+  "a": [
+   "0",
+   "1",
+   "2",
+   "3"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e75",
+  "q": "What is the capital of Germany?",
+  "a": [
+   "Munich",
+   "Hamburg",
+   "Berlin",
+   "Frankfurt"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e76",
+  "q": "Who was the dictator of the Soviet Union during World War II?",
+  "a": [
+   "Vladimir Lenin",
+   "Leon Trotsky",
+   "Joseph Stalin",
+   "Nikita Khrushchev"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e77",
+  "q": "What colour are Dorothy's slippers in the 1939 film The Wizard of Oz?",
+  "a": [
+   "Golden",
+   "Emerald",
+   "Silver",
+   "Ruby red"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e78",
+  "q": "Which singer is nicknamed “The Boss”?",
+  "a": [
+   "John Mellencamp",
+   "Tom Petty",
+   "Bruce Springsteen",
+   "Bob Seger"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e79",
+  "q": "What is the name of the fairy in Peter Pan?",
+  "a": [
+   "Tinker Bell",
+   "Fairy Godmother",
+   "Wendy",
+   "Pixie"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e80",
+  "q": "What is the third planet from the Sun?",
+  "a": [
+   "Earth",
+   "Venus",
+   "Mars",
+   "Mercury"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e81",
+  "q": "What does \"DVD\" stand for?",
+  "a": [
+   "Double Volume Disc",
+   "Dynamic Visual Disc",
+   "Digital Versatile Disc",
+   "Digital Video Drive"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e82",
+  "q": "Which spice is the most expensive in the world?",
+  "a": [
+   "Saffron",
+   "Cinnamon",
+   "Nutmeg",
+   "Cloves"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e83",
+  "q": "Who sang “I Will Always Love You” for the film The Bodyguard?",
+  "a": [
+   "Whitney Houston",
+   "Mariah Carey",
+   "Toni Braxton",
+   "Celine Dion"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e84",
+  "q": "Mount Fuji is located in which country?",
+  "a": [
+   "China",
+   "Japan",
+   "South Korea",
+   "Philippines"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e85",
+  "q": "ABBA, the band behind “Dancing Queen”, came from which country?",
+  "a": [
+   "Finland",
+   "Denmark",
+   "Norway",
+   "Sweden"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e86",
+  "q": "How many bones are in the adult human skeleton?",
+  "a": [
+   "206",
+   "106",
+   "306",
+   "156"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e87",
+  "q": "Marzipan is a confection made primarily from sugar and which nut?",
+  "a": [
+   "Walnuts",
+   "Hazelnuts",
+   "Almonds",
+   "Cashews"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e88",
+  "q": "Which superhero comes from the planet Krypton?",
+  "a": [
+   "Batman",
+   "Superman",
+   "Spiderman",
+   "Iron Man"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e89",
+  "q": "Which country won the 1966 World Cup?",
+  "a": [
+   "Germany",
+   "Brazil",
+   "England",
+   "Italy"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e90",
+  "q": "Which band recorded “Don’t Stop Believin’”?",
+  "a": [
+   "REO Speedwagon",
+   "Styx",
+   "Foreigner",
+   "Journey"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e91",
+  "q": "Why does Mars appear red?",
+  "a": [
+   "Iron oxide on its surface",
+   "Burning rocks",
+   "Red clouds",
+   "Volcanic lava"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e92",
+  "q": "A traditional hamburger patty is made from what meat?",
+  "a": [
+   "Beef",
+   "Pork",
+   "Turkey",
+   "Lamb"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e93",
+  "q": "What is the largest land animal in the world?",
+  "a": [
+   "African elephant",
+   "White rhinoceros",
+   "Hippopotamus",
+   "Giraffe"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e94",
+  "q": "Where do polar bears live?",
+  "a": [
+   "The Antarctic",
+   "The Sahara",
+   "The Arctic",
+   "The Amazon"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e95",
+  "q": "Which company created the Android operating system?",
+  "a": [
+   "Samsung",
+   "Microsoft",
+   "Google",
+   "Apple"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e96",
+  "q": "What is the Great Red Spot on Jupiter?",
+  "a": [
+   "A giant storm",
+   "A volcano",
+   "A crater",
+   "An ocean"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e97",
+  "q": "Popcorn is made from what grain?",
+  "a": [
+   "Wheat",
+   "Oats",
+   "Rice",
+   "Corn"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e98",
+  "q": "Which 2020 album is by Dua Lipa?",
+  "a": [
+   "Happier Than Ever",
+   "Fine Line",
+   "Future Nostalgia",
+   "Positions"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e99",
+  "q": "Which planet is known as the Red Planet?",
+  "a": [
+   "Venus",
+   "Jupiter",
+   "Mars",
+   "Mercury"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e100",
+  "q": "Who sings the vocals on Mark Ronson’s “Uptown Funk”?",
+  "a": [
+   "Bruno Mars",
+   "Pharrell Williams",
+   "Robin Thicke",
+   "Justin Timberlake"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e101",
+  "q": "In which US state is the fictional town of Pawnee in Parks and Recreation?",
+  "a": [
+   "Missouri",
+   "Illinois",
+   "Indiana",
+   "Ohio"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e102",
+  "q": "What is the process called by which plants make food from sunlight?",
+  "a": [
+   "Respiration",
+   "Germination",
+   "Pollination",
+   "Photosynthesis"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e103",
+  "q": "Which boxer was known by the nickname 'The Greatest'?",
+  "a": [
+   "Joe Frazier",
+   "Muhammad Ali",
+   "Mike Tyson",
+   "George Foreman"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e104",
+  "q": "What is the chemical symbol for water?",
+  "a": [
+   "H2O",
+   "CO2",
+   "O2",
+   "NaCl"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e105",
+  "q": "How many minutes are in a day?",
+  "a": [
+   "720",
+   "1,000",
+   "1,440",
+   "2,880"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e106",
+  "q": "What is the name of the fictional African nation ruled by Black Panther?",
+  "a": [
+   "Wakanda",
+   "Zamunda",
+   "Genosha",
+   "Latveria"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e107",
+  "q": "What is a young frog called before it develops legs?",
+  "a": [
+   "Tadpole",
+   "Pupa",
+   "Nymph",
+   "Larva"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e108",
+  "q": "What is the highest standard female singing voice?",
+  "a": [
+   "Alto",
+   "Contralto",
+   "Mezzo-soprano",
+   "Soprano"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e109",
+  "q": "What is Walter White's job at the start of Breaking Bad?",
+  "a": [
+   "Lawyer",
+   "Police officer",
+   "High school chemistry teacher",
+   "Doctor"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e110",
+  "q": "The ancient Olympic Games originated in which country?",
+  "a": [
+   "Italy",
+   "Egypt",
+   "Greece",
+   "Turkey"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e111",
+  "q": "What is the capital of Italy?",
+  "a": [
+   "Milan",
+   "Venice",
+   "Rome",
+   "Naples"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e112",
+  "q": "Which animal is often called 'man's best friend'?",
+  "a": [
+   "Dog",
+   "Cat",
+   "Horse",
+   "Parrot"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e113",
+  "q": "What is the capital of Sweden?",
+  "a": [
+   "Gothenburg",
+   "Oslo",
+   "Stockholm",
+   "Helsinki"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e114",
+  "q": "Who recorded the 1967 hit “Respect”?",
+  "a": [
+   "Gladys Knight",
+   "Aretha Franklin",
+   "Tina Turner",
+   "Diana Ross"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e115",
+  "q": "Pork is the meat of which animal?",
+  "a": [
+   "Chicken",
+   "Pig",
+   "Sheep",
+   "Cow"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e116",
+  "q": "Julius Caesar was assassinated on the Ides of March in which year?",
+  "a": [
+   "27 BC",
+   "69 AD",
+   "14 AD",
+   "44 BC"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e117",
+  "q": "How many players from each team are on a basketball court during a game?",
+  "a": [
+   "4",
+   "5",
+   "6",
+   "7"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e118",
+  "q": "Which country won the 2019 Cricket World Cup?",
+  "a": [
+   "Australia",
+   "India",
+   "New Zealand",
+   "England"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e119",
+  "q": "Which layer of the Earth is liquid?",
+  "a": [
+   "Outer core",
+   "Inner core",
+   "Crust",
+   "Mantle"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e120",
+  "q": "What is the capital of the Netherlands?",
+  "a": [
+   "Amsterdam",
+   "Rotterdam",
+   "The Hague",
+   "Brussels"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e121",
+  "q": "Which 2016 album is by Beyoncé?",
+  "a": [
+   "Lemonade",
+   "Anti",
+   "Purpose",
+   "25"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e122",
+  "q": "What is the real name of the superhero Spider-Man?",
+  "a": [
+   "Peter Parker",
+   "Clark Kent",
+   "Bruce Banner",
+   "Tony Stark"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e123",
+  "q": "Who played the title character in Forrest Gump?",
+  "a": [
+   "Bill Murray",
+   "Kevin Costner",
+   "Robin Williams",
+   "Tom Hanks"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e124",
+  "q": "Bono is the lead singer of which band?",
+  "a": [
+   "INXS",
+   "U2",
+   "The Cure",
+   "Simple Minds"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e125",
+  "q": "How many bones are in the adult human body?",
+  "a": [
+   "106",
+   "206",
+   "156",
+   "306"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e126",
+  "q": "What is the capital of Romania?",
+  "a": [
+   "Cluj-Napoca",
+   "Sofia",
+   "Bucharest",
+   "Budapest"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e127",
+  "q": "Which part of the cell is known as the 'powerhouse of the cell'?",
+  "a": [
+   "Mitochondria",
+   "Nucleus",
+   "Ribosome",
+   "Cell wall"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e128",
+  "q": "Who sings the 2017 hit “Shape of You”?",
+  "a": [
+   "Ed Sheeran",
+   "James Bay",
+   "Sam Smith",
+   "George Ezra"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e129",
+  "q": "What covers and protects a turtle's body?",
+  "a": [
+   "Scales",
+   "Spikes",
+   "A shell",
+   "Fur"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e130",
+  "q": "World War I was fought between which years?",
+  "a": [
+   "1912–1916",
+   "1916–1920",
+   "1914–1918",
+   "1918–1922"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e131",
+  "q": "In the film Finding Nemo, what kind of fish is Marlin, the father searching for his son?",
+  "a": [
+   "Clownfish",
+   "Angelfish",
+   "Goldfish",
+   "Swordfish"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e132",
+  "q": "What is it called when a solid turns directly into a gas?",
+  "a": [
+   "Sublimation",
+   "Evaporation",
+   "Condensation",
+   "Melting"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e133",
+  "q": "How many colours are traditionally said to make up a rainbow?",
+  "a": [
+   "Seven",
+   "Five",
+   "Nine",
+   "Three"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e134",
+  "q": "How many strings does a standard guitar have?",
+  "a": [
+   "4",
+   "5",
+   "6",
+   "7"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e135",
+  "q": "How many rounds is a modern professional boxing championship fight scheduled for?",
+  "a": [
+   "10",
+   "12",
+   "15",
+   "8"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e136",
+  "q": "Metallica is best known for playing which genre?",
+  "a": [
+   "Reggae",
+   "Jazz",
+   "Heavy metal",
+   "Country"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e137",
+  "q": "What kind of toy is Woody in Toy Story?",
+  "a": [
+   "Action figure",
+   "Astronaut",
+   "Cowboy doll",
+   "Robot"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e138",
+  "q": "Chocolate is made from what?",
+  "a": [
+   "Cocoa beans",
+   "Coffee beans",
+   "Carob pods",
+   "Cacao leaves"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e139",
+  "q": "Which singer was dubbed the “King of Pop”?",
+  "a": [
+   "Prince",
+   "Michael Jackson",
+   "Justin Timberlake",
+   "Elvis Presley"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e140",
+  "q": "About how long ago did the dinosaurs become extinct?",
+  "a": [
+   "66 million years",
+   "6 million years",
+   "660 million years",
+   "6,000 years"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e141",
+  "q": "What is the home of a honey bee colony called?",
+  "a": [
+   "A nest",
+   "A den",
+   "A burrow",
+   "A hive"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e142",
+  "q": "Who was the first emperor of China?",
+  "a": [
+   "Qin Shi Huang",
+   "Kublai Khan",
+   "Sun Yat-sen",
+   "Wu Zetian"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e143",
+  "q": "Which French emperor was finally defeated at the Battle of Waterloo?",
+  "a": [
+   "Louis XIV",
+   "Charlemagne",
+   "Charles de Gaulle",
+   "Napoleon Bonaparte"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e144",
+  "q": "What is the capital of the United Kingdom?",
+  "a": [
+   "Manchester",
+   "Birmingham",
+   "Edinburgh",
+   "London"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e145",
+  "q": "What does \"RAM\" stand for?",
+  "a": [
+   "Random Allocation Memory",
+   "Random Access Memory",
+   "Read Access Memory",
+   "Rapid Access Module"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e146",
+  "q": "A Bloody Mary cocktail is made with vodka and what juice?",
+  "a": [
+   "Cranberry juice",
+   "Tomato juice",
+   "Orange juice",
+   "Grapefruit juice"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e147",
+  "q": "What car is used as a time machine in Back to the Future?",
+  "a": [
+   "Chevrolet Camaro",
+   "Ford Mustang",
+   "Volkswagen Beetle",
+   "DeLorean"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e148",
+  "q": "In which modern country is the Inca citadel of Machu Picchu?",
+  "a": [
+   "Mexico",
+   "Bolivia",
+   "Peru",
+   "Chile"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e149",
+  "q": "Which country is famous for sushi?",
+  "a": [
+   "China",
+   "Thailand",
+   "Japan",
+   "Korea"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e150",
+  "q": "How many sides does a hexagon have?",
+  "a": [
+   "5",
+   "6",
+   "7",
+   "8"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e151",
+  "q": "What is the capital of Belgium?",
+  "a": [
+   "Antwerp",
+   "Brussels",
+   "Amsterdam",
+   "Luxembourg City"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e152",
+  "q": "What is the capital of India?",
+  "a": [
+   "Mumbai",
+   "Kolkata",
+   "Bangalore",
+   "New Delhi"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e153",
+  "q": "What is the largest species of bear?",
+  "a": [
+   "Grizzly bear",
+   "Polar bear",
+   "Brown bear",
+   "Black bear"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e154",
+  "q": "Which is the coldest continent on Earth?",
+  "a": [
+   "Asia",
+   "Antarctica",
+   "North America",
+   "Europe"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e155",
+  "q": "Which is the fastest land animal?",
+  "a": [
+   "Lion",
+   "Cheetah",
+   "Horse",
+   "Greyhound"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e156",
+  "q": "Who was the first woman to fly solo across the Atlantic Ocean?",
+  "a": [
+   "Bessie Coleman",
+   "Amelia Earhart",
+   "Jacqueline Cochran",
+   "Harriet Quimby"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e157",
+  "q": "How do bats sleep?",
+  "a": [
+   "Hanging upside down",
+   "In burrows",
+   "Floating on water",
+   "Standing on one leg"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e158",
+  "q": "Lemonade is a drink made from lemons, water and what?",
+  "a": [
+   "Honey",
+   "Milk",
+   "Salt",
+   "Sugar"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e159",
+  "q": "Which type of computer memory loses its data when the power is switched off?",
+  "a": [
+   "DVD",
+   "ROM",
+   "Hard disk",
+   "RAM"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e160",
+  "q": "Who plays Harry Potter in the Harry Potter films?",
+  "a": [
+   "Tom Felton",
+   "Matthew Lewis",
+   "Rupert Grint",
+   "Daniel Radcliffe"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e161",
+  "q": "How many players does a rugby league team have on the pitch?",
+  "a": [
+   "11",
+   "13",
+   "15",
+   "17"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e162",
+  "q": "How many players from each team are on the pitch in a football (soccer) match?",
+  "a": [
+   "Nine",
+   "Ten",
+   "Eleven",
+   "Twelve"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e163",
+  "q": "What is the maximum break possible in a single frame of snooker?",
+  "a": [
+   "100",
+   "120",
+   "147",
+   "155"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e164",
+  "q": "Which band recorded “Hotel California”?",
+  "a": [
+   "The Doobie Brothers",
+   "Steely Dan",
+   "The Eagles",
+   "Fleetwood Mac"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e165",
+  "q": "Angel Falls, the world's tallest waterfall, is located in which country?",
+  "a": [
+   "Brazil",
+   "Venezuela",
+   "Colombia",
+   "Peru"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e166",
+  "q": "What is the fastest bird in the world when diving?",
+  "a": [
+   "Golden eagle",
+   "Peregrine falcon",
+   "Swift",
+   "Albatross"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e167",
+  "q": "Which band recorded “Wonderwall”?",
+  "a": [
+   "Blur",
+   "Oasis",
+   "Suede",
+   "Pulp"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e168",
+  "q": "What is the largest living bird?",
+  "a": [
+   "Emu",
+   "Albatross",
+   "Condor",
+   "Ostrich"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e169",
+  "q": "Which planet has the most prominent ring system?",
+  "a": [
+   "Saturn",
+   "Jupiter",
+   "Neptune",
+   "Uranus"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e170",
+  "q": "How many legs does a spider have?",
+  "a": [
+   "6",
+   "8",
+   "10",
+   "12"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e171",
+  "q": "Traditional pesto is made with which herb?",
+  "a": [
+   "Coriander",
+   "Mint",
+   "Parsley",
+   "Basil"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e172",
+  "q": "Who provides the voice of Shrek in the Shrek films?",
+  "a": [
+   "John Lithgow",
+   "Antonio Banderas",
+   "Mike Myers",
+   "Eddie Murphy"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e173",
+  "q": "What is the currency of the United States?",
+  "a": [
+   "Pound",
+   "Euro",
+   "Yen",
+   "Dollar"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e174",
+  "q": "What is the national dish of Italy?",
+  "a": [
+   "Pizza",
+   "Paella",
+   "Sushi",
+   "Curry"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e175",
+  "q": "In the story of Pinocchio, what happens to his nose when he tells a lie?",
+  "a": [
+   "It grows longer",
+   "It shrinks",
+   "It turns blue",
+   "It falls off"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e176",
+  "q": "What is the capital of Scotland?",
+  "a": [
+   "Glasgow",
+   "Edinburgh",
+   "Aberdeen",
+   "Dundee"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e177",
+  "q": "Which bird cannot fly?",
+  "a": [
+   "Sparrow",
+   "Penguin",
+   "Eagle",
+   "Seagull"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e178",
+  "q": "What is the capital of Ukraine?",
+  "a": [
+   "Kyiv",
+   "Lviv",
+   "Odessa",
+   "Minsk"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e179",
+  "q": "How many continents are there on Earth?",
+  "a": [
+   "Seven",
+   "Five",
+   "Six",
+   "Eight"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e180",
+  "q": "Which composer kept composing even after going completely deaf?",
+  "a": [
+   "Mozart",
+   "Bach",
+   "Schubert",
+   "Beethoven"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e181",
+  "q": "What is the name of the snowman in Disney's Frozen?",
+  "a": [
+   "Olaf",
+   "Marshmallow",
+   "Kristoff",
+   "Sven"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e182",
+  "q": "Which Formula One driver won seven world titles, most of them with Ferrari?",
+  "a": [
+   "Ayrton Senna",
+   "Michael Schumacher",
+   "Lewis Hamilton",
+   "Sebastian Vettel"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e183",
+  "q": "Which explorer led the first expedition to sail around the world?",
+  "a": [
+   "Christopher Columbus",
+   "James Cook",
+   "Ferdinand Magellan",
+   "Vasco da Gama"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e184",
+  "q": "How many players does a rugby union team have on the pitch?",
+  "a": [
+   "11",
+   "13",
+   "15",
+   "16"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e185",
+  "q": "Which European country is world-famous for its chocolate?",
+  "a": [
+   "Norway",
+   "Poland",
+   "Belgium",
+   "Ireland"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e186",
+  "q": "In which city is the Taj Mahal located?",
+  "a": [
+   "Mumbai",
+   "Agra",
+   "New Delhi",
+   "Jaipur"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e187",
+  "q": "In The Incredibles, what is the superhero name of Helen Parr?",
+  "a": [
+   "Violet",
+   "Frozone",
+   "Incredible",
+   "Elastigirl"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e188",
+  "q": "What is the process called when a caterpillar becomes a butterfly?",
+  "a": [
+   "Metamorphosis",
+   "Germination",
+   "Photosynthesis",
+   "Pollination"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e189",
+  "q": "Who voiced the Genie in Disney's 1992 film Aladdin?",
+  "a": [
+   "Eddie Murphy",
+   "Robin Williams",
+   "Will Smith",
+   "Jim Carrey"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e190",
+  "q": "What is the currency of Japan?",
+  "a": [
+   "Yuan",
+   "Won",
+   "Yen",
+   "Ringgit"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e191",
+  "q": "Who was the famous philosopher who tutored Alexander the Great?",
+  "a": [
+   "Plato",
+   "Socrates",
+   "Aristotle",
+   "Pythagoras"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e192",
+  "q": "The 1969 Woodstock festival was held in which US state?",
+  "a": [
+   "California",
+   "Vermont",
+   "Pennsylvania",
+   "New York"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e193",
+  "q": "What is the fastest land animal?",
+  "a": [
+   "Lion",
+   "Horse",
+   "Cheetah",
+   "Greyhound"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e194",
+  "q": "What is the largest fish in the world?",
+  "a": [
+   "Great white shark",
+   "Blue whale",
+   "Manta ray",
+   "Whale shark"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e195",
+  "q": "What famous phrase does E.T. say in E.T. the Extra-Terrestrial?",
+  "a": [
+   "I'll be back",
+   "To infinity and beyond",
+   "May the Force be with you",
+   "E.T. phone home"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e196",
+  "q": "What is the main ingredient in bread?",
+  "a": [
+   "Rice",
+   "Flour",
+   "Potato",
+   "Oats"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e197",
+  "q": "Chris Martin is the lead singer of which band?",
+  "a": [
+   "The Fray",
+   "Coldplay",
+   "Keane",
+   "Snow Patrol"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e198",
+  "q": "How many keys does a standard piano have?",
+  "a": [
+   "76",
+   "92",
+   "108",
+   "88"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e199",
+  "q": "What do you call a baby dog?",
+  "a": [
+   "Kitten",
+   "Cub",
+   "Puppy",
+   "Calf"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e200",
+  "q": "In which year did Christopher Columbus first reach the Americas?",
+  "a": [
+   "1502",
+   "1488",
+   "1492",
+   "1519"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e201",
+  "q": "What is the main language spoken in Brazil?",
+  "a": [
+   "Spanish",
+   "Portuguese",
+   "French",
+   "English"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e202",
+  "q": "How many holes are there in a standard round of golf?",
+  "a": [
+   "9",
+   "12",
+   "15",
+   "18"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e203",
+  "q": "Which country does sprinter Usain Bolt come from?",
+  "a": [
+   "United States",
+   "Jamaica",
+   "Trinidad and Tobago",
+   "Cuba"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e204",
+  "q": "Which bone is found in the upper arm?",
+  "a": [
+   "Humerus",
+   "Femur",
+   "Tibia",
+   "Radius"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e205",
+  "q": "How many rings are there on the Olympic flag?",
+  "a": [
+   "4",
+   "5",
+   "6",
+   "7"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e206",
+  "q": "What is the chemical symbol for sodium?",
+  "a": [
+   "Na",
+   "So",
+   "Sd",
+   "Sl"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e207",
+  "q": "What is the capital of Greece?",
+  "a": [
+   "Thessaloniki",
+   "Athens",
+   "Rome",
+   "Istanbul"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e208",
+  "q": "The Great Wall is located in which country?",
+  "a": [
+   "Japan",
+   "India",
+   "China",
+   "Mongolia"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e209",
+  "q": "Which company makes the iPhone?",
+  "a": [
+   "Apple",
+   "Microsoft",
+   "Samsung",
+   "Google"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e210",
+  "q": "Which of these is a video-sharing website?",
+  "a": [
+   "YouTube",
+   "eBay",
+   "Wikipedia",
+   "PayPal"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e211",
+  "q": "What is the chemical formula for water?",
+  "a": [
+   "CO2",
+   "O2",
+   "H2O",
+   "H2O2"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e212",
+  "q": "Which animal has a trunk?",
+  "a": [
+   "Rhinoceros",
+   "Elephant",
+   "Hippo",
+   "Walrus"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e213",
+  "q": "What is the capital of the United States?",
+  "a": [
+   "New York City",
+   "Los Angeles",
+   "Washington, D.C.",
+   "Chicago"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e214",
+  "q": "Which gas do humans exhale?",
+  "a": [
+   "Carbon dioxide",
+   "Oxygen",
+   "Nitrogen",
+   "Helium"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e215",
+  "q": "What does \"PC\" stand for?",
+  "a": [
+   "Private Computer",
+   "Portable Console",
+   "Personal Console",
+   "Personal Computer"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e216",
+  "q": "In which country is the Great Wall located?",
+  "a": [
+   "Japan",
+   "India",
+   "Mongolia",
+   "China"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e217",
+  "q": "What is the largest living land animal?",
+  "a": [
+   "African bush elephant",
+   "White rhinoceros",
+   "Hippopotamus",
+   "Giraffe"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e218",
+  "q": "Which sport is played at Wimbledon?",
+  "a": [
+   "Cricket",
+   "Tennis",
+   "Golf",
+   "Rugby"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e219",
+  "q": "Which metal is liquid at room temperature?",
+  "a": [
+   "Iron",
+   "Mercury",
+   "Aluminium",
+   "Copper"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e220",
+  "q": "Who composed “Eine kleine Nachtmusik”?",
+  "a": [
+   "Handel",
+   "Haydn",
+   "Mozart",
+   "Bach"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e221",
+  "q": "Which company created the character Mickey Mouse?",
+  "a": [
+   "Warner Bros",
+   "DreamWorks",
+   "Disney",
+   "Pixar"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e222",
+  "q": "What is the largest animal ever to have lived on Earth?",
+  "a": [
+   "African elephant",
+   "Diplodocus",
+   "Sperm whale",
+   "Blue whale"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e223",
+  "q": "Which company created the video game character Mario?",
+  "a": [
+   "Nintendo",
+   "Atari",
+   "Sony",
+   "Sega"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e224",
+  "q": "Which planet is closest to the Sun?",
+  "a": [
+   "Venus",
+   "Earth",
+   "Mercury",
+   "Mars"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e225",
+  "q": "What is the official distance of a marathon race?",
+  "a": [
+   "40 km (24.9 miles)",
+   "42.195 km (26.2 miles)",
+   "45 km (28 miles)",
+   "50 km (31.1 miles)"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e226",
+  "q": "What is the name of the school of magic that Harry Potter attends?",
+  "a": [
+   "Beauxbatons",
+   "Hogwarts",
+   "Durmstrang",
+   "Ilvermorny"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e227",
+  "q": "How many days are in a week?",
+  "a": [
+   "Five",
+   "Seven",
+   "Six",
+   "Eight"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e228",
+  "q": "Which director directed both Jaws and E.T. the Extra-Terrestrial?",
+  "a": [
+   "Steven Spielberg",
+   "Ridley Scott",
+   "James Cameron",
+   "George Lucas"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e229",
+  "q": "Which company makes the Galaxy smartphones?",
+  "a": [
+   "Nokia",
+   "Samsung",
+   "Motorola",
+   "Apple"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e230",
+  "q": "Who played Rose in the 1997 film Titanic?",
+  "a": [
+   "Gwyneth Paltrow",
+   "Kate Winslet",
+   "Julia Roberts",
+   "Cate Blanchett"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e231",
+  "q": "What does \"HD\" stand for in \"HD TV\"?",
+  "a": [
+   "Heavy Duty",
+   "High Definition",
+   "Hard Drive",
+   "High Density"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e232",
+  "q": "What does Wi-Fi allow devices to do?",
+  "a": [
+   "Charge batteries",
+   "Connect to the internet wirelessly",
+   "Print documents",
+   "Cool the processor"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e233",
+  "q": "What is the blinking line that shows where text will appear called?",
+  "a": [
+   "Pixel",
+   "Cursor",
+   "Icon",
+   "Widget"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e234",
+  "q": "Despite its name, what shape is a boxing ring?",
+  "a": [
+   "Square",
+   "Round",
+   "Octagonal",
+   "Rectangular"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e235",
+  "q": "Which game is played with a cue on a green table?",
+  "a": [
+   "Darts",
+   "Snooker",
+   "Bowls",
+   "Croquet"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e236",
+  "q": "The Great Barrier Reef lies off the coast of which country?",
+  "a": [
+   "Brazil",
+   "Mexico",
+   "Indonesia",
+   "Australia"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e237",
+  "q": "Which process describes water moving from the ground to clouds and back as rain?",
+  "a": [
+   "Water cycle",
+   "Rock cycle",
+   "Carbon cycle",
+   "Nitrogen cycle"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e238",
+  "q": "In the fairy tale Sleeping Beauty, how long does the princess sleep?",
+  "a": [
+   "100 years",
+   "50 years",
+   "1,000 years",
+   "10 years"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e239",
+  "q": "How many letters are in the English alphabet?",
+  "a": [
+   "24",
+   "25",
+   "27",
+   "26"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e240",
+  "q": "Where do penguins mostly live?",
+  "a": [
+   "Southern Hemisphere",
+   "Northern Hemisphere",
+   "Equator only",
+   "Arctic"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e241",
+  "q": "What is the capital of Spain?",
+  "a": [
+   "Barcelona",
+   "Madrid",
+   "Seville",
+   "Valencia"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e242",
+  "q": "A smoothie is a thick drink usually made from what?",
+  "a": [
+   "Cheese",
+   "Fruit",
+   "Nuts",
+   "Bread"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e243",
+  "q": "How many colours are in a rainbow?",
+  "a": [
+   "Seven",
+   "Five",
+   "Six",
+   "Eight"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e244",
+  "q": "Which ancient civilisation built the pyramids at Giza?",
+  "a": [
+   "Ancient Egyptians",
+   "Ancient Greeks",
+   "Romans",
+   "Persians"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e245",
+  "q": "What force pulls objects towards the centre of the Earth?",
+  "a": [
+   "Gravity",
+   "Magnetism",
+   "Friction",
+   "Inertia"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e246",
+  "q": "The Amazon River flows through which country?",
+  "a": [
+   "Argentina",
+   "Chile",
+   "Mexico",
+   "Brazil"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e247",
+  "q": "Which is the largest planet in our solar system?",
+  "a": [
+   "Saturn",
+   "Neptune",
+   "Jupiter",
+   "Earth"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e248",
+  "q": "What is the largest ocean on Earth?",
+  "a": [
+   "Atlantic",
+   "Indian",
+   "Arctic",
+   "Pacific"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e249",
+  "q": "Which country is home to the kangaroo?",
+  "a": [
+   "South Africa",
+   "Australia",
+   "New Zealand",
+   "Brazil"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e250",
+  "q": "How many hours are in a day?",
+  "a": [
+   "12",
+   "36",
+   "48",
+   "24"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e251",
+  "q": "What is the name of the ship in Pirates of the Caribbean?",
+  "a": [
+   "Black Pearl",
+   "Flying Dutchman",
+   "Jolly Roger",
+   "Sea Serpent"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e252",
+  "q": "What colour is the skin underneath a polar bear's white fur?",
+  "a": [
+   "Pink",
+   "Black",
+   "Grey",
+   "Brown"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e253",
+  "q": "In the Pixar film WALL-E, what is WALL-E?",
+  "a": [
+   "An alien",
+   "A spaceship",
+   "A robot",
+   "A computer"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e254",
+  "q": "Which country does tennis player Roger Federer come from?",
+  "a": [
+   "Austria",
+   "Germany",
+   "Switzerland",
+   "Sweden"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e255",
+  "q": "Which fruit is known as the 'king of fruits'?",
+  "a": [
+   "Mango",
+   "Papaya",
+   "Pineapple",
+   "Durian"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e256",
+  "q": "At what temperature does pure water boil at sea level?",
+  "a": [
+   "100°C",
+   "50°C",
+   "212°C",
+   "0°C"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e257",
+  "q": "Which galaxy contains our Solar System?",
+  "a": [
+   "The Milky Way",
+   "Andromeda",
+   "Triangulum",
+   "Whirlpool"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e258",
+  "q": "Which company owns Instagram?",
+  "a": [
+   "Google",
+   "Snap",
+   "Meta",
+   "Twitter"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e259",
+  "q": "What is the main ingredient in guacamole?",
+  "a": [
+   "Zucchini",
+   "Pea",
+   "Avocado",
+   "Tomato"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e260",
+  "q": "The Super Bowl is the championship final of which sport?",
+  "a": [
+   "Baseball",
+   "Basketball",
+   "American football",
+   "Ice hockey"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e261",
+  "q": "What is the only mammal capable of true, sustained flight?",
+  "a": [
+   "Flying squirrel",
+   "Sugar glider",
+   "Colugo",
+   "Bat"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e262",
+  "q": "What is the name of the free online encyclopedia that anyone can edit?",
+  "a": [
+   "Britannica",
+   "Dictionary.com",
+   "Encarta",
+   "Wikipedia"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e263",
+  "q": "Who is known as the founder of modern nursing?",
+  "a": [
+   "Mary Seacole",
+   "Florence Nightingale",
+   "Clara Barton",
+   "Edith Cavell"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e264",
+  "q": "What is the capital of Hungary?",
+  "a": [
+   "Debrecen",
+   "Budapest",
+   "Vienna",
+   "Prague"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e265",
+  "q": "What is Sheldon Cooper's profession in The Big Bang Theory?",
+  "a": [
+   "Astronaut",
+   "Engineer",
+   "Biologist",
+   "Theoretical physicist"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e266",
+  "q": "In Peter Pan, what is the name of the pirate captain?",
+  "a": [
+   "Captain Jack Sparrow",
+   "Blackbeard",
+   "Captain Hook",
+   "Long John Silver"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e267",
+  "q": "Tenochtitlan was the capital of which empire?",
+  "a": [
+   "The Inca Empire",
+   "The Maya",
+   "The Aztec Empire",
+   "The Toltec"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e268",
+  "q": "Who was the first emperor of Rome?",
+  "a": [
+   "Julius Caesar",
+   "Augustus",
+   "Nero",
+   "Tiberius"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e269",
+  "q": "How many players are there in a cricket team?",
+  "a": [
+   "9",
+   "11",
+   "13",
+   "15"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e270",
+  "q": "What is the tallest animal in the world?",
+  "a": [
+   "Elephant",
+   "Giraffe",
+   "Ostrich",
+   "Camel"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e271",
+  "q": "A violinist plays which instrument?",
+  "a": [
+   "Violin",
+   "Viola",
+   "Cello",
+   "Double bass"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e272",
+  "q": "What is the highest standard male singing voice?",
+  "a": [
+   "Bass",
+   "Baritone",
+   "Countertenor",
+   "Tenor"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e273",
+  "q": "What is the capital of Denmark?",
+  "a": [
+   "Aarhus",
+   "Oslo",
+   "Copenhagen",
+   "Stockholm"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e274",
+  "q": "How many players are in a football team?",
+  "a": [
+   "9",
+   "10",
+   "11",
+   "12"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e275",
+  "q": "What is the freezing point of water in Celsius?",
+  "a": [
+   "0",
+   "32",
+   "100",
+   "-10"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e276",
+  "q": "What is it called when a liquid turns into a gas?",
+  "a": [
+   "Evaporation",
+   "Freezing",
+   "Condensation",
+   "Sublimation"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e277",
+  "q": "What is 7 times 8?",
+  "a": [
+   "54",
+   "56",
+   "64",
+   "48"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e278",
+  "q": "What is the most abundant gas in Earth's atmosphere?",
+  "a": [
+   "Nitrogen",
+   "Oxygen",
+   "Carbon dioxide",
+   "Argon"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e279",
+  "q": "In the 1933 film King Kong, which New York landmark does Kong climb?",
+  "a": [
+   "Statue of Liberty",
+   "Empire State Building",
+   "Chrysler Building",
+   "World Trade Center"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e280",
+  "q": "The Ashes is a famous Test cricket series contested between which two countries?",
+  "a": [
+   "India and Pakistan",
+   "England and Australia",
+   "South Africa and New Zealand",
+   "West Indies and Sri Lanka"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e281",
+  "q": "Which sport is played at Lord's?",
+  "a": [
+   "Football",
+   "Cricket",
+   "Rugby",
+   "Tennis"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e282",
+  "q": "What is the capital of Japan?",
+  "a": [
+   "Tokyo",
+   "Osaka",
+   "Kyoto",
+   "Nagoya"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e283",
+  "q": "Which ancient Greek city-state was famous for its powerful army?",
+  "a": [
+   "Sparta",
+   "Athens",
+   "Corinth",
+   "Thebes"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e284",
+  "q": "Which instrument has 88 keys?",
+  "a": [
+   "Guitar",
+   "Violin",
+   "Piano",
+   "Flute"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e285",
+  "q": "Paella is a famous saffron rice dish from which country?",
+  "a": [
+   "Greece",
+   "Italy",
+   "Spain",
+   "Portugal"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e286",
+  "q": "Which is the second-largest ocean in the world?",
+  "a": [
+   "Pacific Ocean",
+   "Indian Ocean",
+   "Atlantic Ocean",
+   "Arctic Ocean"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e287",
+  "q": "Borscht is a soup traditionally made with what root vegetable?",
+  "a": [
+   "Carrot",
+   "Turnip",
+   "Beetroot",
+   "Radish"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e288",
+  "q": "Which band recorded “Stairway to Heaven”?",
+  "a": [
+   "Deep Purple",
+   "Black Sabbath",
+   "Led Zeppelin",
+   "Cream"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e289",
+  "q": "The Grand Canyon is located in which US state?",
+  "a": [
+   "Arizona",
+   "Colorado",
+   "Nevada",
+   "Utah"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e290",
+  "q": "Which of these is a web browser?",
+  "a": [
+   "Adobe Photoshop",
+   "Microsoft Excel",
+   "Google Chrome",
+   "Minecraft"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e291",
+  "q": "What is the tallest living land animal?",
+  "a": [
+   "Giraffe",
+   "Elephant",
+   "Ostrich",
+   "Camel"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e292",
+  "q": "Which band recorded “Livin’ on a Prayer”?",
+  "a": [
+   "Bon Jovi",
+   "Europe",
+   "Twisted Sister",
+   "Whitesnake"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e293",
+  "q": "Raisins are dried what?",
+  "a": [
+   "Cherries",
+   "Apricots",
+   "Grapes",
+   "Plums"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e294",
+  "q": "The clarinet belongs to which instrument family?",
+  "a": [
+   "Strings",
+   "Percussion",
+   "Woodwind",
+   "Brass"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e295",
+  "q": "Which part of a computer is often called its \"brain\"?",
+  "a": [
+   "Keyboard",
+   "CPU",
+   "Monitor",
+   "Speaker"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e296",
+  "q": "Which big cat is often called the 'king of the jungle'?",
+  "a": [
+   "Tiger",
+   "Leopard",
+   "Lion",
+   "Jaguar"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e297",
+  "q": "Who plays Captain Jack Sparrow in Pirates of the Caribbean?",
+  "a": [
+   "Orlando Bloom",
+   "Keira Knightley",
+   "Johnny Depp",
+   "Geoffrey Rush"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e298",
+  "q": "How long does a standard football (soccer) match last, excluding stoppage time?",
+  "a": [
+   "60 minutes",
+   "90 minutes",
+   "75 minutes",
+   "120 minutes"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e299",
+  "q": "What does a caterpillar turn into?",
+  "a": [
+   "A frog",
+   "A beetle",
+   "A bird",
+   "A butterfly"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e300",
+  "q": "What is the capital of China?",
+  "a": [
+   "Shanghai",
+   "Beijing",
+   "Hong Kong",
+   "Guangzhou"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e301",
+  "q": "What was the name of the ship that carried the Pilgrims to America in 1620?",
+  "a": [
+   "Santa Maria",
+   "Mayflower",
+   "Speedwell",
+   "Endeavour"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e302",
+  "q": "Approximately how fast does light travel in a vacuum?",
+  "a": [
+   "300,000 km per second",
+   "300 km per second",
+   "30,000 km per second",
+   "3,000 km per second"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e303",
+  "q": "What is the main ingredient in hummus?",
+  "a": [
+   "Lentils",
+   "Black beans",
+   "Kidney beans",
+   "Chickpeas"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e304",
+  "q": "Which flower is famous for turning to face the Sun?",
+  "a": [
+   "Sunflower",
+   "Rose",
+   "Tulip",
+   "Daffodil"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e305",
+  "q": "Coleslaw is a salad made mainly from what vegetable?",
+  "a": [
+   "Celery",
+   "Lettuce",
+   "Carrot",
+   "Cabbage"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e306",
+  "q": "What is the main ingredient used to make glass?",
+  "a": [
+   "Silica sand",
+   "Clay",
+   "Limestone",
+   "Chalk"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e307",
+  "q": "In basketball, how do players score points?",
+  "a": [
+   "By throwing the ball through a hoop",
+   "By kicking the ball into a goal",
+   "By hitting the ball over a net",
+   "By carrying the ball across a line"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e308",
+  "q": "Elton John is famous for playing which instrument?",
+  "a": [
+   "Piano",
+   "Saxophone",
+   "Violin",
+   "Drums"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e309",
+  "q": "Which company makes the Windows operating system?",
+  "a": [
+   "Google",
+   "Microsoft",
+   "Apple",
+   "IBM"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e310",
+  "q": "A Caesar salad is traditionally made with which lettuce?",
+  "a": [
+   "Iceberg lettuce",
+   "Arugula",
+   "Romaine lettuce",
+   "Butterhead lettuce"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e311",
+  "q": "Butter is made by churning what?",
+  "a": [
+   "Milk powder",
+   "Egg yolks",
+   "Yogurt",
+   "Cream"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e312",
+  "q": "What is the biggest planet in our solar system?",
+  "a": [
+   "Saturn",
+   "Neptune",
+   "Earth",
+   "Jupiter"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e313",
+  "q": "Which of the Seven Wonders of the Ancient World was a lighthouse?",
+  "a": [
+   "Colossus of Rhodes",
+   "Temple of Artemis",
+   "Statue of Zeus",
+   "Lighthouse of Alexandria"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e314",
+  "q": "What does \"AI\" stand for?",
+  "a": [
+   "Artificial Intelligence",
+   "Advanced Interface",
+   "Automated Input",
+   "Artificial Internet"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e315",
+  "q": "Which sport uses a shuttlecock?",
+  "a": [
+   "Tennis",
+   "Squash",
+   "Badminton",
+   "Table tennis"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e316",
+  "q": "What is the capital of Finland?",
+  "a": [
+   "Tampere",
+   "Stockholm",
+   "Tallinn",
+   "Helsinki"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e317",
+  "q": "Which band recorded “Smells Like Teen Spirit”?",
+  "a": [
+   "Alice in Chains",
+   "Nirvana",
+   "Soundgarden",
+   "Pearl Jam"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e318",
+  "q": "Victoria Falls lies on the border of Zambia and which other country?",
+  "a": [
+   "Zimbabwe",
+   "Kenya",
+   "Tanzania",
+   "Botswana"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e319",
+  "q": "What type of shark terrorises Amity Island in Jaws?",
+  "a": [
+   "Great white",
+   "Tiger",
+   "Whale",
+   "Hammerhead"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e320",
+  "q": "French onion soup is made mainly from what vegetable?",
+  "a": [
+   "Onions",
+   "Leeks",
+   "Garlic",
+   "Celery"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e321",
+  "q": "What is the capital of France?",
+  "a": [
+   "Lyon",
+   "Paris",
+   "Marseille",
+   "Nice"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e322",
+  "q": "How many points is a touchdown worth in American football?",
+  "a": [
+   "3 points",
+   "7 points",
+   "6 points",
+   "5 points"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e323",
+  "q": "What is the largest land animal?",
+  "a": [
+   "African elephant",
+   "White rhinoceros",
+   "Hippopotamus",
+   "Giraffe"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e324",
+  "q": "The croissant is a pastry most associated with which country?",
+  "a": [
+   "Germany",
+   "Spain",
+   "France",
+   "Italy"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e325",
+  "q": "What is the capital of Australia?",
+  "a": [
+   "Sydney",
+   "Melbourne",
+   "Canberra",
+   "Perth"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e326",
+  "q": "A milkshake is made by blending milk with what?",
+  "a": [
+   "Yogurt",
+   "Ice cream",
+   "Custard",
+   "Cream cheese"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e327",
+  "q": "Which British queen reigned for over 63 years in the 19th century?",
+  "a": [
+   "Queen Elizabeth I",
+   "Queen Victoria",
+   "Queen Anne",
+   "Queen Mary"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e328",
+  "q": "What is the chemical symbol for oxygen?",
+  "a": [
+   "O",
+   "Ox",
+   "Om",
+   "Oy"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e329",
+  "q": "Which animal has the longest neck?",
+  "a": [
+   "Camel",
+   "Llama",
+   "Ostrich",
+   "Giraffe"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e330",
+  "q": "Which fruit is yellow and curved?",
+  "a": [
+   "Apple",
+   "Pear",
+   "Banana",
+   "Orange"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e331",
+  "q": "Who sang the 2019 hit “bad guy”?",
+  "a": [
+   "Dua Lipa",
+   "Billie Eilish",
+   "Halsey",
+   "Lorde"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e332",
+  "q": "The Pyramids of Giza are located in which country?",
+  "a": [
+   "Mexico",
+   "Sudan",
+   "Iraq",
+   "Egypt"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e333",
+  "q": "The Masters golf tournament is played at which famous course?",
+  "a": [
+   "St Andrews",
+   "Pebble Beach",
+   "Augusta National",
+   "Royal Birkdale"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e334",
+  "q": "What does \"USB\" stand for?",
+  "a": [
+   "Unified Serial Board",
+   "Universal System Bus",
+   "United Serial Bus",
+   "Universal Serial Bus"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e335",
+  "q": "Who sang the 2010 hit “Rolling in the Deep”?",
+  "a": [
+   "Adele",
+   "Duffy",
+   "Paloma Faith",
+   "Amy Winehouse"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e336",
+  "q": "What is the capital of Portugal?",
+  "a": [
+   "Lisbon",
+   "Porto",
+   "Madrid",
+   "Barcelona"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e337",
+  "q": "Adolf Hitler was the dictator of which country?",
+  "a": [
+   "Germany",
+   "Austria",
+   "Italy",
+   "Hungary"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e338",
+  "q": "Which is the third-largest ocean in the world?",
+  "a": [
+   "Atlantic Ocean",
+   "Pacific Ocean",
+   "Arctic Ocean",
+   "Indian Ocean"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e339",
+  "q": "Which singer wrote and recorded “All Too Well”?",
+  "a": [
+   "Miley Cyrus",
+   "Taylor Swift",
+   "Katy Perry",
+   "Ariana Grande"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e340",
+  "q": "What is the capital of Austria?",
+  "a": [
+   "Salzburg",
+   "Munich",
+   "Zurich",
+   "Vienna"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e341",
+  "q": "Who played Luke Skywalker in the original Star Wars trilogy?",
+  "a": [
+   "Mark Hamill",
+   "Alec Guinness",
+   "Ewan McGregor",
+   "Harrison Ford"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e342",
+  "q": "Which band recorded “We Are the Champions”?",
+  "a": [
+   "ABBA",
+   "Genesis",
+   "The Bee Gees",
+   "Queen"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e343",
+  "q": "The Nile River flows through which country on its way to the Mediterranean Sea?",
+  "a": [
+   "Libya",
+   "Chad",
+   "Egypt",
+   "Algeria"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e344",
+  "q": "What does \"www\" stand for?",
+  "a": [
+   "Web World Wide",
+   "World Wide Web",
+   "Wide World Web",
+   "World Web Wide"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e345",
+  "q": "Which band recorded “Sweet Child o’ Mine”?",
+  "a": [
+   "Motley Crue",
+   "Poison",
+   "Aerosmith",
+   "Guns N’ Roses"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e346",
+  "q": "Fish and chips in Britain is traditionally made with which fish?",
+  "a": [
+   "Trout",
+   "Salmon",
+   "Tuna",
+   "Cod"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e347",
+  "q": "Which insect is famous for making honey?",
+  "a": [
+   "Wasp",
+   "Ant",
+   "Honey bee",
+   "Hornet"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e348",
+  "q": "What do green plants need from the Sun to make their food?",
+  "a": [
+   "Moonlight",
+   "Sunlight",
+   "Wind",
+   "Rain alone"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e349",
+  "q": "An omelette is made from beaten what?",
+  "a": [
+   "Potatoes",
+   "Flour",
+   "Cream",
+   "Eggs"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e350",
+  "q": "The Vikings came from which region of Europe?",
+  "a": [
+   "Iberia",
+   "The Balkans",
+   "Scandinavia",
+   "The Low Countries"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e351",
+  "q": "How many Grand Slam singles titles did Serena Williams win?",
+  "a": [
+   "19",
+   "21",
+   "23",
+   "25"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e352",
+  "q": "Does sound travel faster in water or in air?",
+  "a": [
+   "Water",
+   "Air",
+   "Same speed",
+   "It cannot travel in water"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e353",
+  "q": "Which sea creature has eight arms?",
+  "a": [
+   "Starfish",
+   "Jellyfish",
+   "Octopus",
+   "Crab"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e354",
+  "q": "Which animal is a large white bear that lives in the Arctic?",
+  "a": [
+   "Polar bear",
+   "Grizzly bear",
+   "Panda",
+   "Koala"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e355",
+  "q": "What is the chemical symbol for helium?",
+  "a": [
+   "He",
+   "Hm",
+   "Hl",
+   "Hy"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e356",
+  "q": "What is a baby cat called?",
+  "a": [
+   "Puppy",
+   "Cub",
+   "Kitten",
+   "Calf"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e357",
+  "q": "Which of these animals is a fish?",
+  "a": [
+   "Salmon",
+   "Dolphin",
+   "Whale",
+   "Seal"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e358",
+  "q": "Which instrument does Ed Sheeran play?",
+  "a": [
+   "Piano",
+   "Drums",
+   "Guitar",
+   "Violin"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e359",
+  "q": "How many days are in a leap year?",
+  "a": [
+   "365",
+   "366",
+   "364",
+   "367"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e360",
+  "q": "What is the capital of Russia?",
+  "a": [
+   "St Petersburg",
+   "Novosibirsk",
+   "Moscow",
+   "Kazan"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e361",
+  "q": "How many minutes are in an hour?",
+  "a": [
+   "30",
+   "45",
+   "60",
+   "100"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e362",
+  "q": "What is the capital of the Czech Republic?",
+  "a": [
+   "Brno",
+   "Bratislava",
+   "Warsaw",
+   "Prague"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e363",
+  "q": "In football, what does a red card mean for the player who receives it?",
+  "a": [
+   "A warning",
+   "A fine",
+   "They are sent off",
+   "They must leave the pitch for 10 minutes"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e364",
+  "q": "Which fairy tale character has a glass slipper?",
+  "a": [
+   "Snow White",
+   "Cinderella",
+   "Rapunzel",
+   "Ariel"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e365",
+  "q": "Which spice gives many curries their yellow colour?",
+  "a": [
+   "Paprika",
+   "Cinnamon",
+   "Cumin",
+   "Turmeric"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e366",
+  "q": "Which Roman city was buried by the eruption of Mount Vesuvius in AD 79?",
+  "a": [
+   "Pompeii",
+   "Rome",
+   "Naples",
+   "Ostia"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e367",
+  "q": "Tea is made by steeping what in hot water?",
+  "a": [
+   "Roots",
+   "Leaves",
+   "Flowers only",
+   "Bark"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e368",
+  "q": "What is the tallest mountain in the world?",
+  "a": [
+   "K2",
+   "Kangchenjunga",
+   "Everest",
+   "Mont Blanc"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e369",
+  "q": "Which type of bird is well known for mimicking human speech?",
+  "a": [
+   "Sparrow",
+   "Robin",
+   "Parrot",
+   "Pigeon"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e370",
+  "q": "What is the largest living reptile?",
+  "a": [
+   "Komodo dragon",
+   "Saltwater crocodile",
+   "Green anaconda",
+   "Leatherback turtle"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e371",
+  "q": "Which social media platform is known for short text posts called \"tweets\"?",
+  "a": [
+   "Instagram",
+   "Twitter",
+   "LinkedIn",
+   "Facebook"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e372",
+  "q": "What do bees make?",
+  "a": [
+   "Wax only",
+   "Honey",
+   "Silk",
+   "Jam"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e373",
+  "q": "Which animal is known as man's best friend?",
+  "a": [
+   "Cat",
+   "Dog",
+   "Horse",
+   "Parrot"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e374",
+  "q": "Which is the largest ocean on Earth?",
+  "a": [
+   "Atlantic Ocean",
+   "Pacific Ocean",
+   "Indian Ocean",
+   "Arctic Ocean"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e375",
+  "q": "Who founded the Mongol Empire?",
+  "a": [
+   "Kublai Khan",
+   "Genghis Khan",
+   "Attila the Hun",
+   "Tamerlane"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e376",
+  "q": "How does a skunk defend itself against predators?",
+  "a": [
+   "It sprays a foul-smelling liquid",
+   "It plays dead",
+   "It rolls into a ball",
+   "It bites"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e377",
+  "q": "Which company makes the Xbox?",
+  "a": [
+   "Microsoft",
+   "Valve",
+   "Nintendo",
+   "Sony"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e378",
+  "q": "Which animal is known as the 'ship of the desert'?",
+  "a": [
+   "Horse",
+   "Camel",
+   "Donkey",
+   "Elephant"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e379",
+  "q": "What is the hardest natural substance?",
+  "a": [
+   "Iron",
+   "Quartz",
+   "Diamond",
+   "Granite"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e380",
+  "q": "Which is the world's largest hot desert?",
+  "a": [
+   "Gobi",
+   "Kalahari",
+   "Sahara",
+   "Mojave"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e381",
+  "q": "What do giant pandas mainly eat?",
+  "a": [
+   "Fish",
+   "Bamboo",
+   "Berries",
+   "Insects"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e382",
+  "q": "Who played Jack Dawson in the 1997 film Titanic?",
+  "a": [
+   "Tom Cruise",
+   "Brad Pitt",
+   "Johnny Depp",
+   "Leonardo DiCaprio"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e383",
+  "q": "The Stanley Cup is the championship trophy of which sport?",
+  "a": [
+   "Basketball",
+   "Ice hockey",
+   "Baseball",
+   "American football"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e384",
+  "q": "What does \"TV\" stand for?",
+  "a": [
+   "Tele Vision",
+   "Television",
+   "Total Vision",
+   "Time Viewer"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e385",
+  "q": "What is the largest animal that has ever lived?",
+  "a": [
+   "African elephant",
+   "Blue whale",
+   "Diplodocus",
+   "Sperm whale"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e386",
+  "q": "Which singer is often called the “Queen of Pop”?",
+  "a": [
+   "Madonna",
+   "Lady Gaga",
+   "Kylie Minogue",
+   "Cher"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e387",
+  "q": "How many balls are there in a standard over in cricket?",
+  "a": [
+   "4",
+   "5",
+   "6",
+   "8"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e388",
+  "q": "What was the writing system of ancient Egypt called?",
+  "a": [
+   "Cuneiform",
+   "Hieroglyphics",
+   "Sanskrit",
+   "Runes"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e389",
+  "q": "Who composed the opera “The Magic Flute”?",
+  "a": [
+   "Mozart",
+   "Wagner",
+   "Verdi",
+   "Puccini"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e390",
+  "q": "In which city is the Statue of Liberty located?",
+  "a": [
+   "Washington, D.C.",
+   "New York City",
+   "Boston",
+   "Los Angeles"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e391",
+  "q": "The Amazon rainforest is the world's largest what?",
+  "a": [
+   "Desert",
+   "Mountain range",
+   "Tropical rainforest",
+   "Grassland"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e392",
+  "q": "The kangaroo and the emu appear on the coat of arms of which country?",
+  "a": [
+   "New Zealand",
+   "Canada",
+   "South Africa",
+   "Australia"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e393",
+  "q": "Botanically speaking, the tomato is what type of fruit?",
+  "a": [
+   "A citrus fruit",
+   "A stone fruit",
+   "A melon",
+   "A berry"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e394",
+  "q": "What is the name of the starship in the original Star Trek TV series?",
+  "a": [
+   "USS Discovery",
+   "USS Defiant",
+   "USS Voyager",
+   "USS Enterprise"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e395",
+  "q": "Which gas do plants absorb from the air to make their food?",
+  "a": [
+   "Oxygen",
+   "Nitrogen",
+   "Carbon dioxide",
+   "Hydrogen"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e396",
+  "q": "What is the capital of Mexico?",
+  "a": [
+   "Guadalajara",
+   "Mexico City",
+   "Monterrey",
+   "Cancun"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e397",
+  "q": "Which country does tennis player Rafael Nadal come from?",
+  "a": [
+   "Argentina",
+   "Spain",
+   "Italy",
+   "Portugal"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e398",
+  "q": "In which city is the Colosseum located?",
+  "a": [
+   "Rome",
+   "Athens",
+   "Paris",
+   "Istanbul"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e399",
+  "q": "What is the main circuit board of a computer called?",
+  "a": [
+   "Daughterboard",
+   "Mainframe",
+   "Motherboard",
+   "Fatherboard"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e400",
+  "q": "Which body part is mainly responsible for the sense of taste?",
+  "a": [
+   "Nose",
+   "Tongue",
+   "Skin",
+   "Ears"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e401",
+  "q": "What is the largest mammal in the world?",
+  "a": [
+   "Elephant",
+   "Blue whale",
+   "Giraffe",
+   "Hippo"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e402",
+  "q": "Henry VIII and Elizabeth I belonged to which royal dynasty?",
+  "a": [
+   "Stuart",
+   "Plantagenet",
+   "Hanover",
+   "Tudor"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e403",
+  "q": "Which singer is known as the “King of Rock and Roll”?",
+  "a": [
+   "Elvis Presley",
+   "Little Richard",
+   "Chuck Berry",
+   "Buddy Holly"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "music"
+ },
+ {
+  "id": "e404",
+  "q": "The French Revolution began in which year?",
+  "a": [
+   "1789",
+   "1776",
+   "1804",
+   "1815"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e405",
+  "q": "Who plays Sherlock Holmes in the BBC series Sherlock?",
+  "a": [
+   "Martin Freeman",
+   "Benedict Cumberbatch",
+   "Tom Hiddleston",
+   "David Tennant"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e406",
+  "q": "What gas do plants release during photosynthesis?",
+  "a": [
+   "Oxygen",
+   "Carbon dioxide",
+   "Nitrogen",
+   "Hydrogen"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "science"
+ },
+ {
+  "id": "e407",
+  "q": "Miso soup is made from a paste of fermented what?",
+  "a": [
+   "Soybeans",
+   "Wheat",
+   "Rice",
+   "Barley"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e408",
+  "q": "Big Ben is a famous clock tower in which city?",
+  "a": [
+   "Manchester",
+   "Dublin",
+   "Edinburgh",
+   "London"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e409",
+  "q": "Which of these is a programming language?",
+  "a": [
+   "Oxygen",
+   "London",
+   "Mercury",
+   "Python"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e410",
+  "q": "A Margherita pizza is traditionally topped with tomato, mozzarella and what?",
+  "a": [
+   "Pepperoni",
+   "Anchovies",
+   "Basil",
+   "Mushrooms"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e411",
+  "q": "What is the largest country in the world by area?",
+  "a": [
+   "Canada",
+   "China",
+   "USA",
+   "Russia"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e412",
+  "q": "Who led India's independence movement using nonviolent resistance?",
+  "a": [
+   "Jawaharlal Nehru",
+   "Mahatma Gandhi",
+   "Subhas Chandra Bose",
+   "Muhammad Ali Jinnah"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e413",
+  "q": "Mixing blue and yellow paint together makes which colour?",
+  "a": [
+   "Purple",
+   "Orange",
+   "Brown",
+   "Green"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e414",
+  "q": "Who plays Frodo Baggins in The Lord of the Rings films?",
+  "a": [
+   "Orlando Bloom",
+   "Elijah Wood",
+   "Sean Astin",
+   "Viggo Mortensen"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e415",
+  "q": "What is the name of the huge ancient amphitheatre in Rome?",
+  "a": [
+   "Colosseum",
+   "Pantheon",
+   "Circus Maximus",
+   "Roman Forum"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e416",
+  "q": "What is the name of the youngest child in The Simpsons?",
+  "a": [
+   "Maggie",
+   "Bart",
+   "Lisa",
+   "Marge"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e417",
+  "q": "Pancakes are made from a batter of milk, eggs and what?",
+  "a": [
+   "Oats",
+   "Cornmeal",
+   "Flour",
+   "Rice flour"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e418",
+  "q": "What pattern of stripes does a zebra have?",
+  "a": [
+   "Brown and white stripes",
+   "Black and yellow stripes",
+   "Black and white stripes",
+   "Grey and pink stripes"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e419",
+  "q": "Which organ pumps blood around the body?",
+  "a": [
+   "Lungs",
+   "Heart",
+   "Liver",
+   "Brain"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e420",
+  "q": "Who founded the Google search engine?",
+  "a": [
+   "Steve Jobs and Steve Wozniak",
+   "Mark Zuckerberg and Eduardo Saverin",
+   "Bill Gates and Paul Allen",
+   "Larry Page and Sergey Brin"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e421",
+  "q": "A watermelon is green on the outside and what colour on the inside?",
+  "a": [
+   "Red",
+   "Blue",
+   "White",
+   "Yellow"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e422",
+  "q": "Which of these birds cannot fly?",
+  "a": [
+   "Sparrow",
+   "Penguin",
+   "Eagle",
+   "Pigeon"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e423",
+  "q": "Which key deletes the character to the left of the cursor?",
+  "a": [
+   "Shift",
+   "Backspace",
+   "Delete",
+   "Enter"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ },
+ {
+  "id": "e424",
+  "q": "Tofu is made from what?",
+  "a": [
+   "Soybeans",
+   "Chickpeas",
+   "Wheat",
+   "Almonds"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e425",
+  "q": "How many points is a try worth in rugby union?",
+  "a": [
+   "3 points",
+   "4 points",
+   "5 points",
+   "7 points"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "sport"
+ },
+ {
+  "id": "e426",
+  "q": "The Mississippi River empties into which body of water?",
+  "a": [
+   "Gulf of Mexico",
+   "Atlantic Ocean",
+   "Pacific Ocean",
+   "Hudson Bay"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e427",
+  "q": "Who was Prime Minister of Britain during most of World War II?",
+  "a": [
+   "Neville Chamberlain",
+   "Winston Churchill",
+   "Clement Attlee",
+   "David Lloyd George"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e428",
+  "q": "What colour are ladybugs (ladybirds) most commonly?",
+  "a": [
+   "Green with yellow spots",
+   "Blue with white spots",
+   "Red with black spots",
+   "Yellow with red spots"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e429",
+  "q": "What is the largest hot desert in the world?",
+  "a": [
+   "Sahara Desert",
+   "Gobi Desert",
+   "Kalahari Desert",
+   "Mojave Desert"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "general"
+ },
+ {
+  "id": "e430",
+  "q": "What is the long nose of an elephant called?",
+  "a": [
+   "Trunk",
+   "Snout",
+   "Proboscis",
+   "Tusk"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "animals"
+ },
+ {
+  "id": "e431",
+  "q": "Who was the last active pharaoh of ancient Egypt?",
+  "a": [
+   "Nefertiti",
+   "Hatshepsut",
+   "Tutankhamun",
+   "Cleopatra"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e432",
+  "q": "Who made the first solo nonstop flight from New York to Paris in 1927?",
+  "a": [
+   "Amelia Earhart",
+   "Howard Hughes",
+   "Wiley Post",
+   "Charles Lindbergh"
+  ],
+  "c": 3,
+  "d": "easy",
+  "cat": "history"
+ },
+ {
+  "id": "e433",
+  "q": "Who is the main villain of Disney's The Lion King?",
+  "a": [
+   "Scar",
+   "Rafiki",
+   "Mufasa",
+   "Zazu"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "tv"
+ },
+ {
+  "id": "e434",
+  "q": "Peanut butter is made from what?",
+  "a": [
+   "Cashews",
+   "Hazelnuts",
+   "Peanuts",
+   "Almonds"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e435",
+  "q": "How many continents are there?",
+  "a": [
+   "5",
+   "6",
+   "7",
+   "8"
+  ],
+  "c": 2,
+  "d": "easy",
+  "cat": "geography"
+ },
+ {
+  "id": "e436",
+  "q": "Ratatouille is a French stew made with eggplant, zucchini and tomatoes. Which of these is NOT an ingredient?",
+  "a": [
+   "Okra",
+   "Garlic",
+   "Onion",
+   "Bell pepper"
+  ],
+  "c": 0,
+  "d": "easy",
+  "cat": "food"
+ },
+ {
+  "id": "e437",
+  "q": "Which space mission landed the first humans on the Moon?",
+  "a": [
+   "Apollo 13",
+   "Apollo 11",
+   "Skylab",
+   "Gemini 4"
+  ],
+  "c": 1,
+  "d": "easy",
+  "cat": "tech"
+ }
+]
