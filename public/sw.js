@@ -7,6 +7,7 @@ const ASSETS = [
   '/data/easy.json',
   '/data/medium.json',
   '/data/hard.json',
+  '/music/entertainer.mp3',
 ];
 
 self.addEventListener('install', (e) => {

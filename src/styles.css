@@ -384,18 +384,24 @@ body::before {
 }
 
 .music-btn {
-  border: none;
-  background: transparent;
-  font-size: 1.4rem;
+  border: 2px solid rgba(255,255,255,0.35);
+  background: rgba(45, 27, 78, 0.8);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 800;
   cursor: pointer;
-  padding: 4px 6px;
+  padding: 8px 14px;
   line-height: 1;
-  filter: drop-shadow(0 0 8px rgba(255, 209, 102, 0.4));
-  transition: transform 0.1s;
+  border-radius: 999px;
+  transition: transform 0.1s, border-color 0.2s;
+  white-space: nowrap;
 }
 
-.music-btn:active { transform: scale(0.85); }
-.music-btn.off { opacity: 0.5; filter: grayscale(1); }
+.music-btn:active { transform: scale(0.9); }
+.music-btn.on { border-color: var(--yellow); color: var(--yellow); }
+.music-btn.off { opacity: 0.6; }
+
+.title-music { margin-top: 4px; }
 
 /* ---------- Rank panel ---------- */
 

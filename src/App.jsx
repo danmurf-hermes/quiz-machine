@@ -570,6 +570,20 @@ function App() {
             TAP TO PLAY
           </button>
           <div className="title-hint">3 lives · climb the ranks · how far can you get?</div>
+          <button
+            className={`music-btn title-music ${musicOn ? 'on' : 'off'}`}
+            onClick={() => {
+              const next = !musicOn;
+              setMusicOn(next);
+              saveMusicPref(next);
+              playTap();
+              if (next) startSaloonMusic();
+              else stopSaloonMusic();
+            }}
+            aria-label={musicOn ? 'Mute music' : 'Play music'}
+          >
+            {musicOn ? '🎹 MUSIC ON' : '🔇 MUSIC OFF'}
+          </button>
           <div className="attribution">Facts verified via Wikipedia · CC BY-SA</div>
         </div>
       )}
@@ -598,7 +612,7 @@ function App() {
               }}
               aria-label={musicOn ? 'Mute music' : 'Play music'}
             >
-              {musicOn ? '🎹' : '🔇'}
+              {musicOn ? '🎹 MUSIC ON' : '🔇 MUSIC OFF'}
             </button>
           </div>
 

@@ -120,106 +120,44 @@ export function playRankUp() {
 }
 
 // ---------- Saloon background music ----------
-// Original honky-tonk ragtime loop in C — fully synthesized, no samples,
-// no licensing, no copyright issues. Stride bass + jaunty right hand.
+// "The Entertainer" (1902) by Scott Joplin — piano roll recording,
+// PUBLIC DOMAIN (Joplin died 1917; composition PD). Downloaded from
+// Wikimedia Commons. Looped via <audio>, works on all devices.
 
-let saloonTimer = null;
-let saloonBar = 0;
-let saloonNextTime = 0;
+let saloonAudio = null;
+let saloonBaseVol = 0.5;
 
-const SALOON_BPM = 132;
-const SALOON_BEAT = 60 / SALOON_BPM;
-
-// 8-bar loop: C C G7 G7 C C G7 C
-const SALOON_CHORDS = [
-  { root: 48, tri: [60, 64, 67] },
-  { root: 48, tri: [60, 64, 67] },
-  { root: 43, tri: [55, 59, 62] },
-  { root: 43, tri: [55, 59, 62] },
-  { root: 48, tri: [60, 64, 67] },
-  { root: 48, tri: [60, 64, 67] },
-  { root: 43, tri: [55, 59, 62] },
-  { root: 48, tri: [60, 64, 67] },
-];
-
-// Right-hand melody, eighth-note grid (0 = rest)
-const SALOON_MELODY = [
-  [67, 0, 72, 0, 76, 72, 74, 0],
-  [67, 0, 72, 0, 76, 0, 72, 0],
-  [71, 0, 74, 0, 77, 74, 72, 0],
-  [71, 0, 74, 0, 77, 0, 74, 71],
-  [67, 72, 76, 72, 79, 76, 74, 72],
-  [74, 0, 72, 0, 67, 0, 64, 0],
-  [71, 0, 74, 0, 71, 74, 77, 74],
-  [72, 76, 79, 76, 72, 67, 64, 60],
-];
-
-function midiToFreq(m) {
-  return 440 * Math.pow(2, (m - 69) / 12);
-}
-
-// Honky-tonk piano-ish note: triangle + slightly detuned square, quick decay
-function pianoNote(midi, start, dur, vol) {
-  const c = ensureCtx();
-  if (!c) return;
-  const notes = Array.isArray(midi) ? midi : [midi];
-  notes.forEach((m) => {
-    if (!m) return;
-    const f = midiToFreq(m);
-    const t = c.currentTime + start;
-    const osc1 = c.createOscillator();
-    const osc2 = c.createOscillator();
-    const gain = c.createGain();
-    osc1.type = 'triangle';
-    osc2.type = 'square';
-    osc1.frequency.setValueAtTime(f, t);
-    osc2.frequency.setValueAtTime(f * 1.006, t); // detune = honky-tonk wobble
-    gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(vol, t + 0.01);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    osc1.connect(gain);
-    osc2.connect(gain);
-    gain.connect(c.destination);
-    osc1.start(t); osc1.stop(t + dur + 0.05);
-    osc2.start(t); osc2.stop(t + dur + 0.05);
-  });
-}
-
-function scheduleSaloonBar(barIndex, when) {
-  const chord = SALOON_CHORDS[barIndex % SALOON_CHORDS.length];
-  const melody = SALOON_MELODY[barIndex % SALOON_MELODY.length];
-  const beat = SALOON_BEAT;
-  // Stride bass: root, chord, fifth, chord
-  pianoNote(chord.root, when, beat * 0.9, 0.13);
-  pianoNote(chord.tri, when + beat, beat * 0.8, 0.08);
-  pianoNote(chord.root + 7, when + beat * 2, beat * 0.9, 0.13);
-  pianoNote(chord.tri, when + beat * 3, beat * 0.8, 0.08);
-  // Jaunty right hand, eighth notes
-  melody.forEach((m, i) => {
-    if (m) pianoNote(m, when + (i * beat) / 2, beat * 0.45, 0.1);
-  });
+function ensureSaloonAudio() {
+  if (saloonAudio) return saloonAudio;
+  const a = new Audio('/music/entertainer.mp3');
+  a.loop = true;
+  a.preload = 'auto';
+  a.volume = saloonBaseVol;
+  saloonAudio = a;
+  return a;
 }
 
 export function startSaloonMusic() {
-  const c = ensureCtx();
-  if (!c || saloonTimer) return;
-  saloonBar = 0;
-  saloonNextTime = c.currentTime + 0.05;
-  saloonTimer = setInterval(() => {
-    const c2 = ensureCtx();
-    if (!c2) return;
-    while (saloonNextTime < c2.currentTime + 0.35) {
-      scheduleSaloonBar(saloonBar, saloonNextTime - c2.currentTime);
-      saloonNextTime += 4 * SALOON_BEAT;
-      saloonBar += 1;
-    }
-  }, 100);
+  const a = ensureSaloonAudio();
+  a.volume = saloonBaseVol;
+  const p = a.play();
+  if (p) p.catch(() => { /* autoplay blocked until gesture — retry on next start */ });
 }
 
 export function stopSaloonMusic() {
-  if (saloonTimer) {
-    clearInterval(saloonTimer);
-    saloonTimer = null;
+  if (saloonAudio) {
+    saloonAudio.pause();
+    saloonAudio.currentTime = 0;
+  }
+}
+
+// Duck the music so sound effects cut through (e.g. during the roast laugh)
+export function duckSaloonMusic() {
+  if (saloonAudio && !saloonAudio.paused) {
+    saloonAudio.volume = saloonBaseVol * 0.25;
+    setTimeout(() => {
+      if (saloonAudio) saloonAudio.volume = saloonBaseVol;
+    }, 1200);
   }
 }
 
