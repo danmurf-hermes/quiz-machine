@@ -1,6 +1,6 @@
 // Minimal offline cache: app shell + question data.
 // Only registers on secure contexts (localhost/HTTPS) — LAN IP serving is a no-op there.
-const CACHE = 'quizmachine-v1';
+const CACHE = 'quizmachine-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -31,7 +31,25 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
+  const { request } = e;
+
+  // HTML navigations: network-first so fresh deploys always win,
+  // cache fallback for offline (the pub).
+  if (request.mode === 'navigate') {
+    e.respondWith(
+      fetch(request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put('./index.html', copy));
+          return res;
+        })
+        .catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Everything else: cache-first, network fallback.
   e.respondWith(
-    caches.match(e.request).then((hit) => hit || fetch(e.request))
+    caches.match(request).then((hit) => hit || fetch(request))
   );
 });
