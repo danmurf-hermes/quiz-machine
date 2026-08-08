@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { createGame, pickQuestion, answerQuestion, tierForStreak, BASE_POINTS } from './game/engine';
+import { createGame, pickQuestion, answerQuestion, RANKS, rankFor, tierForRank, BASE_POINTS } from './game/engine';
 import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, unlockAudio, vibrate } from './game/sounds';
 import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
@@ -180,11 +180,20 @@ function gameOverLine(score) {
 
 // Question presentation lines — {v} is replaced with the points on offer
 const QUIZBERT_PRESENT = [
-  'And now, for £{v}!',
-  'Next up — for £{v}!',
-  'For £{v}, contestant!',
-  'Let\'s see you take £{v}!',
-  'The next question is worth £{v}!',
+  'And now, for {v} points!',
+  'Next up — for {v} points!',
+  'For {v} points, contestant!',
+  'Let\'s see you take {v} points!',
+  'The next question is worth {v} points!',
+];
+
+// Rank-up celebration lines — {r} is the new rank name
+const QUIZBERT_RANKUP = [
+  'A round of applause! You\'re now a {r}!',
+  'The machine is impressed. You\'ve reached {r}!',
+  'Look at you go! Welcome to the rank of {r}!',
+  'The crowd goes wild! {r} in the house!',
+  'You\'ve earned it, contestant — {r}!',
 ];
 
 // Points the next question is worth: tier base × next multiplier
@@ -220,13 +229,14 @@ function App() {
   const [presentLine, setPresentLine] = useState(null); // Quizbert's "for £X" line
   const [finalScore, setFinalScore] = useState(0);
   const [finalStreak, setFinalStreak] = useState(0);
-  const [cash, setCash] = useState(0);
+  const [finalRank, setFinalRank] = useState(0);
+  const [rankDisplay, setRankDisplay] = useState(0); // rank index for the HUD
+  const [rankProgress, setRankProgress] = useState(0); // segments filled
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
   const [consecutiveWrongs, setConsecutiveWrongs] = useState(0);
   const [popup, setPopup] = useState(null); // {text, kind, id} floating text
   const [flash, setFlash] = useState(null); // {kind, id} full-screen colour flash
   const [shake, setShake] = useState(false); // screen shake on wrong
-  const cashTimer = useRef(null);
   const heartbeatTimer = useRef(null);
   const popupId = useRef(0);
   const flashId = useRef(0);
@@ -256,7 +266,7 @@ function App() {
     return () => { cancelled = true; };
   }, []);
 
-  useEffect(() => () => clearInterval(cashTimer.current), []);
+  useEffect(() => () => clearInterval(heartbeatTimer.current), []);
 
   function startGame() {
     unlockAudio();
@@ -273,7 +283,8 @@ function App() {
     setGame(g);
     setQuestion(q);
     setLastResult(null);
-    setCash(0);
+    setRankDisplay(0);
+    setRankProgress(0);
     setConsecutiveWrongs(0);
     // Quizbert introduces himself, full screen
     setQuizbert({
@@ -346,6 +357,7 @@ function App() {
         playGameOver();
         setFinalScore(game.score);
         setFinalStreak(game.streak);
+        setFinalRank(game.rank);
         setQuizbert({
           kind: 'gameover',
           text: gameOverLine(game.score),
@@ -362,6 +374,7 @@ function App() {
           // Bank exhausted mid-game — treat as a win
           setFinalScore(game.score);
           setFinalStreak(game.streak);
+          setFinalRank(game.rank);
           setScreen('gameover');
           return;
         }
@@ -379,8 +392,15 @@ function App() {
         if (result.milestone) {
           qb.sponsor = SPONSORS[Math.floor(Math.random() * SPONSORS.length)];
         }
+        if (result.rankUp) {
+          const newRank = rankFor(game);
+          qb.kind = 'rankup';
+          qb.text = QUIZBERT_RANKUP[Math.floor(Math.random() * QUIZBERT_RANKUP.length)].replace('{r}', `${newRank.emoji} ${newRank.name}`);
+          qb.face = '🎉';
+          qb.sponsor = SPONSORS[Math.floor(Math.random() * SPONSORS.length)];
+        }
         setQuizbert(qb);
-        const delay = result.milestone ? 2800 : 1700;
+        const delay = result.milestone || result.rankUp ? 2800 : 1700;
         setTimeout(() => {
           setQuizbert(null);
           setQuestion(next);
@@ -407,16 +427,9 @@ function App() {
       vibrate(30);
       burst(0.5, 0.45, 30);
       showFlash('good');
-      showPopup(`+£${pointsOnOffer(game, question).toLocaleString()}`, 'good');
-      // Cash pot count-up
-      clearInterval(cashTimer.current);
-      const target = game.score;
-      cashTimer.current = setInterval(() => {
-        setCash((c) => {
-          if (c >= target) { clearInterval(cashTimer.current); return target; }
-          return c + Math.max(1, Math.round((target - c) / 8));
-        });
-      }, 30);
+      showPopup(`+${pointsOnOffer(game, question).toLocaleString()}`, 'good');
+      setRankDisplay(game.rank);
+      setRankProgress(game.rankProgress);
       if (result.milestone) {
         playMilestone();
         vibrate([60, 40, 60]);
@@ -424,6 +437,14 @@ function App() {
         streamers();
         showFlash('milestone');
         showPopup(`STREAK ×${game.streak}!`, 'milestone');
+      }
+      if (result.rankUp) {
+        playMilestone();
+        vibrate([60, 40, 60, 40, 60]);
+        bigBurst(0.5, 0.3, 120);
+        streamers(30);
+        showFlash('milestone');
+        showPopup(`RANK UP! ${rankFor(game).emoji}`, 'milestone');
       }
     } else {
       playWrong();
@@ -433,6 +454,8 @@ function App() {
       setTimeout(() => setShake(false), 600);
       showFlash('bad');
       showPopup('WRONG!', 'bad');
+      setRankDisplay(game.rank);
+      setRankProgress(game.rankProgress);
     }
 
     advanceAfter(result, wrongs);
@@ -455,11 +478,11 @@ function App() {
             <span className="logo-small">MACHINE</span>
           </div>
           <div className="quizbert-banner">with your host, <strong>Quizbert</strong> 🎩</div>
-          <div className="best-score">Best: £{best.toLocaleString()}</div>
+          <div className="best-score">Best: {best.toLocaleString()} pts</div>
           <button className="big-btn play-btn" onClick={startGame}>
             TAP TO PLAY
           </button>
-          <div className="title-hint">3 lives · how far can you get?</div>
+          <div className="title-hint">3 lives · climb the ranks · how far can you get?</div>
         </div>
       )}
 
@@ -474,7 +497,22 @@ function App() {
             <div className={`streak ${game.streak >= 5 ? 'hot' : ''}`}>
               {game.streak > 0 ? `🔥 ×${game.streak}` : '—'}
             </div>
-            <div className="cash">£{cash.toLocaleString()}</div>
+            <div className="score">{game.score.toLocaleString()}</div>
+          </div>
+
+          <div className="rank-panel">
+            <div className="rank-name">
+              <span className="rank-emoji">{rankFor(game).emoji}</span>
+              <span className="rank-title">{rankFor(game).name}</span>
+              {game.rank < RANKS.length - 1 && (
+                <span className="rank-next">→ {RANKS[game.rank + 1].emoji} {RANKS[game.rank + 1].name}</span>
+              )}
+            </div>
+            <div className="rank-bar">
+              {Array.from({ length: rankFor(game).segments }).map((_, i) => (
+                <span key={i} className={`rank-seg ${i < rankProgress ? 'filled' : ''}`} />
+              ))}
+            </div>
           </div>
 
           <div className={`timer-bar ${timeLeft <= 5 ? 'danger' : ''} ${timeLeft <= 2 ? 'critical' : ''}`}>
@@ -491,7 +529,7 @@ function App() {
           )}
 
           <div key={question.id} className={`question-card ${game.streak >= 5 ? 'hot' : ''} ${lastResult ? (lastResult.correct ? 'flash-good' : 'flash-bad') : ''}`}>
-            <div className="tier-tag">{tierForStreak(game.streak).toUpperCase()}</div>
+            <div className="tier-tag">{tierForRank(game.rank).toUpperCase()}</div>
             <div className="question-text">{question.q}</div>
           </div>
 
@@ -542,7 +580,8 @@ function App() {
               <div className="quizbert-line">{quizbert.text}</div>
             </div>
           )}
-          <div className="final-score">£{finalScore.toLocaleString()}</div>
+          <div className="final-score">{finalScore.toLocaleString()} pts</div>
+          <div className="final-rank">{RANKS[finalRank].emoji} Rank reached: {RANKS[finalRank].name}</div>
           <div className="final-streak">Best streak: {finalStreak}</div>
           <button className="big-btn play-btn" onClick={startGame}>
             ONE MORE GO

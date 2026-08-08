@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createGame, tierForStreak, pickQuestion, answerQuestion } from './engine';
+import { createGame, RANKS, rankFor, tierForRank, pickQuestion, answerQuestion } from './engine';
 
 const bank = {
   easy: [
@@ -30,28 +30,56 @@ describe('createGame', () => {
     const g = createGame(new Set(['e1']));
     expect(g.seen.has('e1')).toBe(true);
   });
+
+  it('starts at rank 0 with empty progress', () => {
+    const g = createGame();
+    expect(g.rank).toBe(0);
+    expect(g.rankProgress).toBe(0);
+  });
 });
 
-describe('tierForStreak', () => {
-  it('returns easy for streaks 0-4', () => {
-    expect(tierForStreak(0)).toBe('easy');
-    expect(tierForStreak(4)).toBe('easy');
+describe('ranks', () => {
+  it('has 8 ranks', () => {
+    expect(RANKS.length).toBe(8);
   });
-  it('returns medium for streaks 5-9', () => {
-    expect(tierForStreak(5)).toBe('medium');
-    expect(tierForStreak(9)).toBe('medium');
+
+  it('escalates difficulty: easy, easy, medium, medium, medium, hard, hard, hard', () => {
+    expect(RANKS.map((r) => r.tier)).toEqual(['easy', 'easy', 'medium', 'medium', 'medium', 'hard', 'hard', 'hard']);
   });
-  it('returns hard for streaks 10+', () => {
-    expect(tierForStreak(10)).toBe('hard');
-    expect(tierForStreak(25)).toBe('hard');
+
+  it('clamps rank lookups at the top rank', () => {
+    const g = createGame();
+    g.rank = 99;
+    expect(rankFor(g).name).toBe('Machine Master');
+  });
+
+  it('tierForRank maps to the right tier', () => {
+    expect(tierForRank(0)).toBe('easy');
+    expect(tierForRank(2)).toBe('medium');
+    expect(tierForRank(5)).toBe('hard');
+    expect(tierForRank(99)).toBe('hard');
   });
 });
 
 describe('pickQuestion', () => {
-  it('picks from the tier matching the current streak', () => {
+  it('picks from the tier matching the current rank', () => {
     const g = createGame();
     const q = pickQuestion(g, bank);
     expect(q.d).toBe('easy');
+  });
+
+  it('picks medium questions at rank 2', () => {
+    const g = createGame();
+    g.rank = 2;
+    const q = pickQuestion(g, bank);
+    expect(q.d).toBe('medium');
+  });
+
+  it('picks hard questions at rank 5', () => {
+    const g = createGame();
+    g.rank = 5;
+    const q = pickQuestion(g, bank);
+    expect(q.d).toBe('hard');
   });
 
   it('does not repeat questions within a game', () => {
@@ -136,5 +164,46 @@ describe('answerQuestion', () => {
     answerQuestion(g, q, 0);
     expect(g.seen.has(q.id)).toBe(true);
     expect(g.usedThisGame.has(q.id)).toBe(true);
+  });
+});
+
+describe('rank progression', () => {
+  it('fills progress on correct answers', () => {
+    const g = createGame();
+    answerQuestion(g, bank.easy[0], 0);
+    expect(g.rankProgress).toBe(1);
+    expect(g.rank).toBe(0);
+  });
+
+  it('ranks up when the bar fills', () => {
+    const g = createGame();
+    g.rankProgress = 2; // Glass Collector needs 3
+    const r = answerQuestion(g, bank.easy[0], 0);
+    expect(r.rankUp).toBe(true);
+    expect(g.rank).toBe(1);
+    expect(g.rankProgress).toBe(0);
+  });
+
+  it('drains progress on wrong answers', () => {
+    const g = createGame();
+    g.rankProgress = 2;
+    answerQuestion(g, bank.easy[0], 1);
+    expect(g.rankProgress).toBe(1);
+  });
+
+  it('does not drain below zero', () => {
+    const g = createGame();
+    answerQuestion(g, bank.easy[0], 1);
+    expect(g.rankProgress).toBe(0);
+  });
+
+  it('stays at the top rank and keeps the bar full', () => {
+    const g = createGame();
+    g.rank = 7; // Machine Master
+    g.rankProgress = 7;
+    const r = answerQuestion(g, bank.hard[0], 1);
+    expect(r.rankUp).toBe(false);
+    expect(g.rank).toBe(7);
+    expect(g.rankProgress).toBe(8);
   });
 });
