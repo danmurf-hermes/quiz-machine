@@ -312,9 +312,9 @@ function App() {
   useEffect(() => {
     let cancelled = false;
     Promise.all([
-      fetch('/data/easy.json').then((r) => r.json()),
-      fetch('/data/medium.json').then((r) => r.json()),
-      fetch('/data/hard.json').then((r) => r.json()),
+      fetch('data/easy.json').then((r) => r.json()),
+      fetch('data/medium.json').then((r) => r.json()),
+      fetch('data/hard.json').then((r) => r.json()),
     ]).then(([easy, medium, hard]) => {
       if (!cancelled) setBank({ easy, medium, hard });
     });

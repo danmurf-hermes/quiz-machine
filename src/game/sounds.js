@@ -125,12 +125,12 @@ export function playRankUp() {
 // Songs rotate so it's not always the same tune.
 
 const SALOON_PLAYLIST = [
-  '/music/entertainer.mp3',
-  '/music/maple_leaf.mp3',
-  '/music/easy_winners.mp3',
-  '/music/elite_syncopations.mp3',
-  '/music/peacherine.mp3',
-  '/music/fig_leaf.mp3',
+  'music/entertainer.mp3',
+  'music/maple_leaf.mp3',
+  'music/easy_winners.mp3',
+  'music/elite_syncopations.mp3',
+  'music/peacherine.mp3',
+  'music/fig_leaf.mp3',
 ];
 
 let saloonAudio = null;
