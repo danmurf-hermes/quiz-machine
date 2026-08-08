@@ -120,28 +120,62 @@ export function playRankUp() {
 }
 
 // ---------- Saloon background music ----------
-// "The Entertainer" (1902) by Scott Joplin — piano roll recording,
-// PUBLIC DOMAIN (Joplin died 1917; composition PD). Downloaded from
-// Wikimedia Commons. Looped via <audio>, works on all devices.
+// Public-domain Scott Joplin ragtime (piano roll recordings from
+// Wikimedia Commons). Joplin died 1917 — compositions are public domain.
+// Songs rotate so it's not always the same tune.
+
+const SALOON_PLAYLIST = [
+  '/music/entertainer.mp3',
+  '/music/maple_leaf.mp3',
+  '/music/easy_winners.mp3',
+  '/music/elite_syncopations.mp3',
+  '/music/peacherine.mp3',
+  '/music/fig_leaf.mp3',
+];
 
 let saloonAudio = null;
 let saloonBaseVol = 0.5;
+let saloonCurrent = -1;
 
 function ensureSaloonAudio() {
   if (saloonAudio) return saloonAudio;
-  const a = new Audio('/music/entertainer.mp3');
-  a.loop = true;
+  const a = new Audio();
   a.preload = 'auto';
   a.volume = saloonBaseVol;
+  a.addEventListener('ended', () => {
+    // Song finished — roll to a different one
+    const next = pickNextSaloon();
+    saloonCurrent = next;
+    a.src = SALOON_PLAYLIST[next];
+    const p = a.play();
+    if (p) p.catch(() => {});
+  });
   saloonAudio = a;
   return a;
+}
+
+function pickNextSaloon() {
+  if (SALOON_PLAYLIST.length <= 1) return 0;
+  let next = Math.floor(Math.random() * SALOON_PLAYLIST.length);
+  while (next === saloonCurrent) {
+    next = Math.floor(Math.random() * SALOON_PLAYLIST.length);
+  }
+  return next;
 }
 
 export function startSaloonMusic() {
   const a = ensureSaloonAudio();
   a.volume = saloonBaseVol;
+  if (a.src && a.paused) {
+    const p = a.play();
+    if (p) p.catch(() => { /* autoplay blocked until gesture — retry on next start */ });
+    return;
+  }
+  // First start — pick a random song
+  saloonCurrent = Math.floor(Math.random() * SALOON_PLAYLIST.length);
+  a.src = SALOON_PLAYLIST[saloonCurrent];
   const p = a.play();
-  if (p) p.catch(() => { /* autoplay blocked until gesture — retry on next start */ });
+  if (p) p.catch(() => {});
 }
 
 export function stopSaloonMusic() {

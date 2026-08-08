@@ -8,6 +8,11 @@ const ASSETS = [
   '/data/medium.json',
   '/data/hard.json',
   '/music/entertainer.mp3',
+  '/music/maple_leaf.mp3',
+  '/music/easy_winners.mp3',
+  '/music/elite_syncopations.mp3',
+  '/music/peacherine.mp3',
+  '/music/fig_leaf.mp3',
 ];
 
 self.addEventListener('install', (e) => {
