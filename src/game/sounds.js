@@ -107,6 +107,18 @@ export function playWhoosh() {
   osc.stop(c.currentTime + dur + 0.05);
 }
 
+// Rank-up fanfare — triumphant rising arpeggio with held "ta-da!" chord
+export function playRankUp() {
+  const c = ensureCtx();
+  if (!c) return;
+  const melody = [523.25, 659.25, 783.99, 1046.5, 1318.5, 1568, 2093];
+  melody.forEach((f, i) => tone(f, i * 0.1, 0.22, 'square', 0.11));
+  const bass = [130.81, 196, 261.63, 392];
+  bass.forEach((f, i) => tone(f, i * 0.2, 0.45, 'triangle', 0.09));
+  // Held final chord — the "ta-da!"
+  [1046.5, 1318.5, 1568].forEach((f) => tone(f, 0.7, 0.9, 'triangle', 0.12));
+}
+
 // Call once from a user gesture to unlock audio
 export function unlockAudio() {
   ensureCtx();

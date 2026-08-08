@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createGame, pickQuestion, answerQuestion, RANKS, rankFor, tierForRank, BASE_POINTS } from './game/engine';
-import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, unlockAudio, vibrate } from './game/sounds';
+import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, playRankUp, unlockAudio, vibrate } from './game/sounds';
 import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
 
@@ -268,6 +268,7 @@ function App() {
   const [popup, setPopup] = useState(null); // {text, kind, id} floating text
   const [flash, setFlash] = useState(null); // {kind, id} full-screen colour flash
   const [shake, setShake] = useState(false); // screen shake on wrong
+  const [rankUpEvent, setRankUpEvent] = useState(null); // {oldRank, newRank} — full-screen celebration
   const heartbeatTimer = useRef(null);
   const popupId = useRef(0);
   const flashId = useRef(0);
@@ -283,6 +284,13 @@ function App() {
     setFlash({ kind, id: flashId.current });
     setTimeout(() => setFlash((f) => (f && f.id === flashId.current ? null : f)), 800);
   }
+
+  // Auto-dismiss the rank-up celebration after 4s
+  useEffect(() => {
+    if (!rankUpEvent) return;
+    const t = setTimeout(() => setRankUpEvent(null), 4000);
+    return () => clearTimeout(t);
+  }, [rankUpEvent]);
 
   // Load question bank once
   useEffect(() => {
@@ -474,12 +482,14 @@ function App() {
         showPopup(`STREAK ×${game.streak}!`, 'milestone');
       }
       if (result.rankUp) {
-        playMilestone();
+        playRankUp();
         vibrate([60, 40, 60, 40, 60]);
         bigBurst(0.5, 0.3, 120);
         streamers(30);
         showFlash('milestone');
         showPopup(`RANK UP! ${rankFor(game).emoji}`, 'milestone');
+        // Full-screen rank-up celebration — capture old + new rank
+        setRankUpEvent({ oldRank: game.rank - 1, newRank: game.rank });
       }
     } else {
       playWrong();
@@ -505,6 +515,27 @@ function App() {
       {flash && <div key={`flash-${flash.id}`} className={`screen-flash ${flash.kind}`} />}
       {popup && <div key={`popup-${popup.id}`} className={`popup ${popup.kind}`}>{popup.text}</div>}
       {screen === 'playing' && timeLeft <= 2 && <div className="danger-vignette" />}
+
+      {rankUpEvent && (
+        <div className={`rankup-overlay ${rankUpEvent.newRank === RANKS.length - 1 ? 'summit' : ''}`}>
+          <div className="rankup-kicker">
+            {rankUpEvent.newRank === RANKS.length - 1 ? '👑 THE SUMMIT 👑' : 'RANK UP!'}
+          </div>
+          <div className="rankup-emoji-row">
+            <span className="rankup-old">{RANKS[rankUpEvent.oldRank].emoji}</span>
+            <span className="rankup-arrow">→</span>
+            <span className="rankup-new">{RANKS[rankUpEvent.newRank].emoji}</span>
+          </div>
+          <div className="rankup-title">{RANKS[rankUpEvent.newRank].name}</div>
+          {rankUpEvent.newRank < RANKS.length - 1 ? (
+            <div className="rankup-next">
+              Next: {RANKS[rankUpEvent.newRank + 1].emoji} {RANKS[rankUpEvent.newRank + 1].name}
+            </div>
+          ) : (
+            <div className="rankup-next">You have conquered the Machine. Legend. 👑</div>
+          )}
+        </div>
+      )}
 
       {screen === 'title' && (
         <div className="screen title-screen">
