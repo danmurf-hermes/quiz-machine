@@ -506,6 +506,7 @@ function App() {
             TAP TO PLAY
           </button>
           <div className="title-hint">3 lives · climb the ranks · how far can you get?</div>
+          <div className="attribution">Facts verified via Wikipedia · CC BY-SA</div>
         </div>
       )}
 
