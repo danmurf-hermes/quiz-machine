@@ -50,7 +50,7 @@ describe('ranks', () => {
   it('clamps rank lookups at the top rank', () => {
     const g = createGame();
     g.rank = 99;
-    expect(rankFor(g).name).toBe('Machine Master');
+    expect(rankFor(g).name).toBe('Grandmaster');
   });
 
   it('tierForRank maps to the right tier', () => {
