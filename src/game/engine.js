@@ -14,6 +14,21 @@ export const RANKS = [
 export const BASE_POINTS = { easy: 100, medium: 200, hard: 300 };
 export const MILESTONES = [5, 10, 15, 20, 25, 30, 40, 50];
 export const START_LIVES = 3;
+export const SEEN_RESET_RATIO = 0.8;
+
+const TIER_PREFIX = { easy: 'e', medium: 'm', hard: 'h' };
+
+export function shouldResetSeen(seenIds, bankSizes) {
+  return Object.entries(bankSizes).some(([tier, size]) => {
+    if (!size) return false;
+    const prefix = TIER_PREFIX[tier];
+    let seenInTier = 0;
+    for (const id of seenIds) {
+      if (id.startsWith(prefix) && /^\d+$/.test(id.slice(1))) seenInTier++;
+    }
+    return seenInTier / size >= SEEN_RESET_RATIO;
+  });
+}
 
 export function createGame(seenIds = new Set()) {
   return {
@@ -40,6 +55,11 @@ export function tierForRank(rank) {
 export function pickQuestion(state, bank) {
   const tier = tierForRank(state.rank);
   const pool = bank[tier] || [];
+  // Prefer questions never seen in ANY game (state.seen), then this game (usedThisGame)
+  const fresh = pool.filter((q) => !state.seen.has(q.id) && !state.usedThisGame.has(q.id));
+  if (fresh.length > 0) {
+    return fresh[Math.floor(Math.random() * fresh.length)];
+  }
   const unused = pool.filter((q) => !state.usedThisGame.has(q.id));
   if (unused.length > 0) {
     return unused[Math.floor(Math.random() * unused.length)];

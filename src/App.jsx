@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { createGame, pickQuestion, answerQuestion, RANKS, rankFor, tierForRank, BASE_POINTS } from './game/engine';
+import { createGame, pickQuestion, answerQuestion, shouldResetSeen, RANKS, rankFor, tierForRank, BASE_POINTS } from './game/engine';
 import { playCorrect, playWrong, playMilestone, playGameOver, playTap, playCashCount, playHeartbeat, playTimeout, playRoast, playWhoosh, playRankUp, startSaloonMusic, stopSaloonMusic, unlockAudio, vibrate } from './game/sounds';
 import { burst, bigBurst, streamers } from './game/confetti';
 import './styles.css';
@@ -344,9 +344,8 @@ function App() {
     playTap();
     if (musicOn) startSaloonMusic();
     const seen = loadSeen();
-    // Reset seen when 80% of the bank has been seen — fresh shuffle
-    const total = bank ? bank.easy.length + bank.medium.length + bank.hard.length : 180;
-    if (seen.size > total * 0.8) {
+    // Reset seen when 80% of ANY tier has been seen — fresh shuffle per rank band
+    if (bank && shouldResetSeen(seen, { easy: bank.easy.length, medium: bank.medium.length, hard: bank.hard.length })) {
       seen.clear();
       saveSeen(seen);
     }

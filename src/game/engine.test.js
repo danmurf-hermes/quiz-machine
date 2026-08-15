@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createGame, RANKS, rankFor, tierForRank, pickQuestion, answerQuestion } from './engine';
+import { createGame, RANKS, rankFor, tierForRank, pickQuestion, answerQuestion, shouldResetSeen } from './engine';
 
 const bank = {
   easy: [
@@ -105,6 +105,73 @@ describe('pickQuestion', () => {
     g.usedThisGame = new Set(['e1', 'e2', 'e3', 'm1', 'm2', 'h1']);
     const q = pickQuestion(g, bank);
     expect(q).toBeNull();
+  });
+
+  it('skips questions seen in previous games when fresh ones remain', () => {
+    const bigBank = {
+      easy: [
+        { id: 'e1', q: 'Q1', a: ['A', 'B', 'C', 'D'], c: 0, d: 'easy', cat: 'general' },
+        { id: 'e2', q: 'Q2', a: ['A', 'B', 'C', 'D'], c: 1, d: 'easy', cat: 'general' },
+        { id: 'e3', q: 'Q3', a: ['A', 'B', 'C', 'D'], c: 2, d: 'easy', cat: 'general' },
+        { id: 'e4', q: 'Q4', a: ['A', 'B', 'C', 'D'], c: 3, d: 'easy', cat: 'general' },
+      ],
+      medium: [],
+      hard: [],
+    };
+    // Seen e1–e3 in previous games; only e4 is fresh
+    const g = createGame(new Set(['e1', 'e2', 'e3']));
+    const orig = Math.random;
+    Math.random = () => 0.0; // picks the FIRST element of any pool — e1 if seen isn't respected
+    try {
+      const q = pickQuestion(g, bigBank);
+      expect(q.id).toBe('e4');
+    } finally {
+      Math.random = orig;
+    }
+  });
+
+  it('falls back to previously-seen questions once the tier has no fresh ones', () => {
+    const bigBank = {
+      easy: [
+        { id: 'e1', q: 'Q1', a: ['A', 'B', 'C', 'D'], c: 0, d: 'easy', cat: 'general' },
+        { id: 'e2', q: 'Q2', a: ['A', 'B', 'C', 'D'], c: 1, d: 'easy', cat: 'general' },
+        { id: 'e3', q: 'Q3', a: ['A', 'B', 'C', 'D'], c: 2, d: 'easy', cat: 'general' },
+        { id: 'e4', q: 'Q4', a: ['A', 'B', 'C', 'D'], c: 3, d: 'easy', cat: 'general' },
+      ],
+      medium: [],
+      hard: [],
+    };
+    const g = createGame(new Set(['e1', 'e2', 'e3']));
+    g.usedThisGame = new Set(['e4']); // the only fresh one is already used this game
+    const orig = Math.random;
+    Math.random = () => 0.999;
+    try {
+      const q = pickQuestion(g, bigBank);
+      expect(['e1', 'e2', 'e3']).toContain(q.id);
+    } finally {
+      Math.random = orig;
+    }
+  });
+});
+
+describe('shouldResetSeen', () => {
+  it('resets when 80% or more of the tier has been seen', () => {
+    const seen = new Set(['e1', 'e2', 'e3', 'e4']);
+    const bankSizes = { easy: 4, medium: 100, hard: 100 };
+    expect(shouldResetSeen(seen, bankSizes)).toBe(true); // 4/4 = 100%
+  });
+
+  it('does not reset below 80% of the tier', () => {
+    const seen = new Set(['e1', 'e2', 'e3']);
+    const bankSizes = { easy: 4, medium: 100, hard: 100 };
+    expect(shouldResetSeen(seen, bankSizes)).toBe(false); // 3/4 = 75%
+  });
+
+  it('counts only seen ids that exist in the bank', () => {
+    const seen = new Set(['e1', 'e2', 'e3', 'e4', 'ghost']);
+    const bankSizes = { easy: 4, medium: 100, hard: 100 };
+    // 4 real seen / 4 easy = 100%; 'ghost' must not inflate the count
+    expect(shouldResetSeen(seen, bankSizes)).toBe(true);
   });
 });
 
